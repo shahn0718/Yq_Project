@@ -8,8 +8,9 @@
 		<layout class="org.apache.log4j.PatternLayout">
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
-	</appender>
+	</appender> 
 	
+
 	<!-- Application Loggers -->
 	<logger name="com.yongq.controller">
 		<level value="info" />
@@ -33,6 +34,7 @@
 	</logger>
 
 	<!-- Root Logger -->
+	<!-- warn -> off -->
 	<root>
 		<priority value="warn" />
 		<appender-ref ref="console" />
