@@ -33,4 +33,10 @@ public class LoginController {
     return "home";
 
   }
+  
+  @RequestMapping("/list")
+  public String stuList(Model model){
+    
+    return "/list";
+  }
 }
