@@ -1,11 +1,10 @@
 package com.yongq.controller;
 
 import java.text.DateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -51,6 +50,8 @@ public class LoginController {
   }
 
   /*
+   * @test 용
+   * 
    * @RequestMapping("/list") public String stuList(Model model){
    * 
    * SDao sdao = sqlSession.getMapper(SDao.class);
@@ -62,37 +63,56 @@ public class LoginController {
 
   @RequestMapping("/student")
   public String loginPage(Model model) {
-    
+
     return "students/Student_Login_Page";
   }
 
-  @RequestMapping(value="/Login", method=RequestMethod.POST)
-  public String stuLogin(HttpServletRequest req, Model model) {
+  /*
+   * 로그인 실패할 경우의 수
+   * 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 
+   * 2. 비밀번호가 틀린 경우.(SQL에 정보는 있지만 값의 불일치)
+   * 
+   */
 
+  @RequestMapping(value = "/Login", method = RequestMethod.POST)
+  public String stuLogin(HttpServletRequest req, Model model){
+
+    // 성공 & 실패 url
     String successUrl = "students/Student_Main_Page";
     String falseUrl = "students/Student_Login_Page";
-    
+
     String stu_id = req.getParameter("stu_id");
     String stu_pw = req.getParameter("stu_pw");
-  
 
     SDao sdao = sqlSession.getMapper(SDao.class);
     HashMap<StudentVO, String> loginInfo = sdao.stuLogin(stu_id);
-   
-    if (stu_pw.equals(loginInfo.get("STU_PW"))) {
-      logger.info("=====로그인 성공!=====");
-      
-      
-      //session 저장
-      
-      return successUrl;
-    }else{
-      logger.info("=====로그인 실패=====");
+
+    try {
+      if (stu_pw.equals(loginInfo.get("STU_PW"))) {
+        logger.info("=====로그인 성공!=====");
+
+        Map map = new HashMap();
+        map.put("stu_id", stu_id);
+        map.put("stu_pw", stu_pw);
+        req.getSession().setAttribute("userInfo", map);
+
+        logger.info("세션저장: " + map);
+        // System.out.println(map)
+        // 비밀번호를 저장? 저장x?
+
+        return successUrl;
+        
+      } else {
+
+        logger.info("=====로그인 실패!=====");
+        logger.info("=====비밀번호 오류=====");
+        return falseUrl;
+      }
+    } catch (Exception e) {
+      logger.info("=====로그인 실패!=====");
+      logger.info("=====아이디가 존재x======");
       return falseUrl;
+
     }
-     
-    
-
   }
-
 }

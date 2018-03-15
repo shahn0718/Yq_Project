@@ -5,13 +5,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
  
 <configuration>
 
-   <settings>
+	<settings>
         <setting name="jdbcTypeForNull" value="NULL" />
    </settings>
    
     <mappers>
    	<mapper resource="com/yongq/mapper/sDao.xml"/>
+   	<mapper resource="com/yongq/mapper/aDao.xml"/>
    </mappers>
-    
+   
 </configuration>
 
