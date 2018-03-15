@@ -6,4 +6,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="stuList" resultType="com.yongq.s_dto.StudentVO">
 		SELECT * FROM STUDENT
 	</select>
+	
+	<select id="stuLogin" resultType="java.util.HashMap">
+		SELECT STU_PW FROM STUDENT WHERE STU_ID = #{param1}
+	</select>
 </mapper>

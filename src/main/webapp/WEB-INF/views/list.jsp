@@ -15,12 +15,12 @@
 
 <body>
 	<table width="500" cellpadding="0" cellspacing="0" border="1">
-		<c:forEach items="${list}" var="c">
+		<c:forEach items="${stulist}" var="c">
 			<tr>
-				<td>${c.stu_id}</td>
-				<td>${c.stu_name}</td>
+			<!--	<td>${c.stu_id}</td> -->
+			<!--	<td>${c.stu_name}</td> -->
 				<td>${c.stu_pw}</td>
-				<td>${c.stu_change}</td>
+			<!--  <td>${c.stu_change}</td>	-->
 			</tr>
 
 		</c:forEach>
