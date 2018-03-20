@@ -11,7 +11,7 @@
 <br><br>
 <center><h1>관리자 페이지</h1></center><br><br>
 <center>
-<form method="post" action="AdminLogin.do" name="frm">
+<form method="post" action="adLogin" name="frm">
 <table cellpadding="10px">
 	<tr>
 		<td width="40%">학&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;번</td>

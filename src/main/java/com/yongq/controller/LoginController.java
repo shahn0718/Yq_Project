@@ -17,6 +17,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.yongq.a_dao.ADao;
+import com.yongq.a_dto.AdminVO;
 import com.yongq.s_dao.SDao;
 import com.yongq.s_dao.SLogin;
 import com.yongq.s_dto.StudentVO;
@@ -62,20 +64,23 @@ public class LoginController {
    */
 
   @RequestMapping("/student")
-  public String loginPage(Model model) {
+  public String stuPage(Model model) {
 
     return "students/Student_Login_Page";
   }
-
+  @RequestMapping("/admin")
+  public String adPage(Model model){
+    
+    return "admins/Admin_Login_Page";
+  }
   /*
-   * 로그인 실패할 경우의 수
-   * 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 
-   * 2. 비밀번호가 틀린 경우.(SQL에 정보는 있지만 값의 불일치)
+   * 로그인 실패할 경우의 수 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 2. 비밀번호가 틀린 경우.(SQL에 정보는
+   * 있지만 값의 불일치)
    * 
    */
 
   @RequestMapping(value = "/Login", method = RequestMethod.POST)
-  public String stuLogin(HttpServletRequest req, Model model){
+  public String stuLogin(HttpServletRequest req, Model model) {
 
     // 성공 & 실패 url
     String successUrl = "students/Student_Main_Page";
@@ -101,7 +106,7 @@ public class LoginController {
         // 비밀번호를 저장? 저장x?
 
         return successUrl;
-        
+
       } else {
 
         logger.info("=====로그인 실패!=====");
@@ -113,6 +118,47 @@ public class LoginController {
       logger.info("=====아이디가 존재x======");
       return falseUrl;
 
+    }
+  }
+
+  @RequestMapping(value = "/adLogin", method = RequestMethod.POST)
+  public String adLogin(HttpServletRequest req, Model model) {
+
+    String successUrl = "admins/Admin_Main_Page";
+    String falseUrl = "admins/Admin_Login_Page";
+
+    String ad_id = req.getParameter("ad_id");
+    String ad_pw = req.getParameter("ad_pw");
+
+    ADao adao = sqlSession.getMapper(ADao.class);
+    HashMap<AdminVO, String> loginInfo = adao.adLogin(ad_id);
+
+    try {
+      if (ad_id.equals(loginInfo.get("AD_ID"))) {
+        logger.info("=====로그인 성공!=====");
+
+        Map map = new HashMap();
+        map.put("ad_id", ad_id);
+        map.put("ad_pw", ad_pw);
+        req.getSession().setAttribute("adminInfo", map);
+
+        logger.info("세션저장: " + map);
+        // System.out.println(map)
+        // 비밀번호를 저장? 저장x?
+
+        return successUrl;
+      } else {
+
+        logger.info("=====로그인 실패!=====");
+        logger.info("=====비밀번호 오류=====");
+        return falseUrl;
+
+      }
+
+    } catch (Exception e) {
+      logger.info("=====로그인 실패!=====");
+      logger.info("=====아이디가 존재x======");
+      return falseUrl;
     }
   }
 }

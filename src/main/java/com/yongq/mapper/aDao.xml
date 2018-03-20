@@ -2,10 +2,14 @@
 <!DOCTYPE mapper 
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yongq.a_dao.aDao">
+<mapper namespace="com.yongq.a_dao.ADao">
 
 	<select id="adList" resultType="com.yongq.a_dto.AdminVO">
 		SELECT * FROM ADMIN
+	</select>
+	
+	<select id="adLogin" resultType="java.util.HashMap">
+		SELECT AD_ID,AD_PW FROM ADMIN WHERE AD_ID = #{param1}
 	</select>
 	
 </mapper>
