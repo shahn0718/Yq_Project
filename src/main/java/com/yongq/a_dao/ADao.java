@@ -3,7 +3,7 @@ package com.yongq.a_dao;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.yongq.a_dto.AdminVO;
+import com.yongq.dto.AdminVO;
 
 public interface ADao {
 

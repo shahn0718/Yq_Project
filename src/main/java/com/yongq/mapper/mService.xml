@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yongq.cos.MenuService">
+
+	<select id="dayMenuH" resultType="com.yongq.dto.MenuVO">
+		SELECT * FROM MENU WHERE MN_DATE = #{PARAM1} AND CHAIN = "환경과학대"
+	</select>
+
+	<select id="dayMenuD" resultType="com.yongq.dto.MenuVO">
+		SELECT * FROM MENU WHERE MN_DATE = #{PARAM1} AND CHAIN ="생활관" 
+	</select>
+	
+	<select id="dayMenuI" resultType="com.yongq.dto.MenuVO">
+		SELECT * FROM MENU WHERE MN_DATE = #{PARAM1} AND CHAIN ="인성관"
+	</select>
+
+	<select id="weekMenu" resultType="com.yongq.dto.MenuVO">
+		SELECT * FROM MENU WHERE MN_DATE >= DATE_ADD(CURDATE(), INTERVAL (DAYOFWEEK(CURDATE())-2)*-1 DAY) 
+			ORDER BY MN_DATE
+	</select>
+
+
+</mapper>

@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
-import com.yongq.a_dto.AdminVO;
+import com.yongq.dto.AdminVO;
 
-@Repository("ALogin")
-public class ALogin implements ADao{
+@Repository("AdminDAO")
+public class AdminDAO implements ADao{
 
   
   ADao adao;

@@ -1,4 +1,4 @@
-package com.yongq.a_dto;
+package com.yongq.dto;
 
 public class AdminVO {
   

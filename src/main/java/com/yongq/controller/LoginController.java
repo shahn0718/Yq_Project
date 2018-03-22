@@ -18,17 +18,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.yongq.a_dao.ADao;
-import com.yongq.a_dto.AdminVO;
+import com.yongq.dto.AdminVO;
+import com.yongq.dto.StudentVO;
 import com.yongq.s_dao.SDao;
-import com.yongq.s_dao.SLogin;
-import com.yongq.s_dto.StudentVO;
+import com.yongq.s_dao.StudentDAO;
 
 @Controller
 public class LoginController {
 
   private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-  SLogin Slogin;
+  StudentDAO Slogin;
 
   @Autowired
   private SqlSession sqlSession;
@@ -73,17 +73,17 @@ public class LoginController {
     
     return "admins/Admin_Login_Page";
   }
+  
   /*
-   * 로그인 실패할 경우의 수 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 2. 비밀번호가 틀린 경우.(SQL에 정보는
-   * 있지만 값의 불일치)
-   * 
+   * 로그인 실패할 경우의 수 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 
+   * 2. 비밀번호가 틀린 경우.(SQL에 정보는 있지만 값의 불일치)
    */
 
   @RequestMapping(value = "/Login", method = RequestMethod.POST)
   public String stuLogin(HttpServletRequest req, Model model) {
 
     // 성공 & 실패 url
-    String successUrl = "students/Student_Main_Page";
+    String successUrl ="students/Student_Main_Page";
     String falseUrl = "students/Student_Login_Page";
 
     String stu_id = req.getParameter("stu_id");
@@ -99,6 +99,7 @@ public class LoginController {
         Map map = new HashMap();
         map.put("stu_id", stu_id);
         map.put("stu_pw", stu_pw);
+        model.addAttribute("stu_name",loginInfo.get("STU_NAME"));
         req.getSession().setAttribute("userInfo", map);
 
         logger.info("세션저장: " + map);
@@ -140,6 +141,7 @@ public class LoginController {
         Map map = new HashMap();
         map.put("ad_id", ad_id);
         map.put("ad_pw", ad_pw);
+        model.addAttribute("ad_name",loginInfo.get("AD_NAME"));
         req.getSession().setAttribute("adminInfo", map);
 
         logger.info("세션저장: " + map);

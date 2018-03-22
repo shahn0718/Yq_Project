@@ -5,10 +5,10 @@ import java.util.HashMap;
 
 import org.springframework.stereotype.Repository;
 
-import com.yongq.s_dto.StudentVO;
+import com.yongq.dto.StudentVO;
 
-@Repository("SLogin")
-public class SLogin implements SDao{
+@Repository("StudentDAO")
+public class StudentDAO implements SDao{
   
   SDao sdao;
   
@@ -24,7 +24,12 @@ public class SLogin implements SDao{
      return sdao.stuLogin(stu_id);
   }
 
-  
+  @Override
+  public HashMap<StudentVO, String> stuInfo(String stu_id) {
+    // TODO Auto-generated method stub
+    return sdao.stuInfo(stu_id);
+  }
+
   
 
 }

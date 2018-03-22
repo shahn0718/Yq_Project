@@ -22,8 +22,8 @@
 	</beans:bean>
 
 	<!-- DAO 정의 --> 
-	<beans:bean id="SLogin" class="com.yongq.s_dao.SLogin"/>
-	<beans:bean id="ALogin" class="com.yongq.a_dao.ALogin"/>
+	<beans:bean id="StudentDAO" class="com.yongq.s_dao.StudentDAO"/>
+	<beans:bean id="AdminDAO" class="com.yongq.a_dao.AdminDAO"/>
 	
 	<context:component-scan base-package="com.yongq.controller"/>
 

@@ -3,11 +3,15 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace = "com.yongq.s_dao.SDao">
-	<select id="stuList" resultType="com.yongq.s_dto.StudentVO">
+	<select id="stuList" resultType="com.yongq.dto.StudentVO">
 		SELECT * FROM STUDENT
 	</select>
 	
 	<select id="stuLogin" resultType="java.util.HashMap">
-		SELECT STU_ID , STU_PW FROM STUDENT WHERE STU_ID = #{param1}
+		SELECT STU_ID , STU_PW , STU_NAME FROM STUDENT WHERE STU_ID = #{param1}
+	</select>
+	
+	<select id="stuInfo" resultType="java.util.HashMap">
+		SELECT * FROM STUDENT WHERE STU_ID =#{param1}
 	</select>
 </mapper>

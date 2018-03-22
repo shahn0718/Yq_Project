@@ -1,4 +1,4 @@
-package com.yongq.s_dto;
+package com.yongq.dto;
 
 public class StudentVO {
 
