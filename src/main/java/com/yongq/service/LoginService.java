@@ -1,5 +1,6 @@
 package com.yongq.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.yongq.dto.AdminVO;
@@ -12,7 +13,7 @@ public interface LoginService {
    * 2. 학생 정보 (학번)
    */
   public HashMap<StudentVO,String> stuLogin(String stu_id);
-  public HashMap<StudentVO,String> stuInfo(String stu_id);
+  public ArrayList<StudentVO> stuInfo(String stu_id);
   
   /*
    *  Admin
@@ -20,6 +21,6 @@ public interface LoginService {
    *  2. 관리자 정보 (관리자번호)
    */
   public HashMap<AdminVO,String>adLogin(String ad_id);
-  
+  public ArrayList<AdminVO> adInfo(String ad_id);
   
 }

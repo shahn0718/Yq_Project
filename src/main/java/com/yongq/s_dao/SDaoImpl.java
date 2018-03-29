@@ -38,10 +38,10 @@ public class SDaoImpl implements SDao{
   }
 
   @Override
-  public HashMap<StudentVO, String> stuInfo(String stu_id) {
+  public ArrayList<StudentVO> stuInfo(String stu_id) {
    
     sdao= sqlSession.getMapper(SDao.class);
-    HashMap<StudentVO,String> stuInfo = sdao.stuInfo(stu_id);
+    ArrayList<StudentVO> stuInfo = sdao.stuInfo(stu_id);
     
     return stuInfo;
    

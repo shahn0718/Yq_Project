@@ -6,24 +6,20 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Student Information page</title>
+<title>Admin Information page</title>
 </head>
 <body>
 <form method="post" action="Student_Main_Page.jsp">
 <input type="submit" value="뒤로"></form><br><br>
 <table cellpadding="20px" style="position:relative; left: 150px; top:20px;">
-<c:forEach var="student" items="${stuInfo}">	
+<c:forEach var="admin" items="${adInfo}">	
 <tr>
-	<td>이름 : </td>
-	<td>${student.stu_name}</td>
+	<td>관리자 이름 : </td>
+	<td>${admin.ad_name}</td>
 </tr>
 <tr>
-	<td>학번 : </td>
-	<td>${student.stu_id}</td>
-</tr>
-<tr>
-	<td>잔액 : </td>
-	<td>${student.stu_change}</td>
+	<td>관리자 번호 : </td>
+	<td>${admin.ad_id}</td>
 </tr>
 </c:forEach>
 </table>

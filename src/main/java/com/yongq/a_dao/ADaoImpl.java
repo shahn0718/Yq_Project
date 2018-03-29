@@ -33,6 +33,15 @@ public class ADaoImpl implements ADao{
     
     return adLogin;
   }
+
+  @Override
+  public ArrayList<AdminVO> adInfo(String ad_id) {
+    
+    adao = sqlSession.getMapper(ADao.class);
+    ArrayList<AdminVO> adInfo = adao.adInfo(ad_id);
+    
+    return adInfo;
+  }
   
 
 }

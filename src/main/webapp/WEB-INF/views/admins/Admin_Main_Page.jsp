@@ -11,7 +11,7 @@
 <form method="post" action="Admin_Login_Page.jsp">
 <input type="submit" value="뒤로"></form>
 <div style="position:absolute; top:10px; left:370px">
-<a href="adminInfo.jsp"><p>${ad_name}</p></a>
+<a href="admin/Info"><p>${ad_name}</p></a>
 <form method="post" action="Admin_Login_Page.jsp">
 <input type="submit" value="로그아웃"></form>
 </div>

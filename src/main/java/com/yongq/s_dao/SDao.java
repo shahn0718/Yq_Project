@@ -13,5 +13,5 @@ public interface SDao {
   //학생 로그인 (학번)
   public HashMap<StudentVO,String> stuLogin(String stu_id);
   //학생 정보(학번)
-  public HashMap<StudentVO,String> stuInfo(String stu_id);
+  public ArrayList<StudentVO> stuInfo(String stu_id);
 }
