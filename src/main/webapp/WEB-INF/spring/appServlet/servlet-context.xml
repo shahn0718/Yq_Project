@@ -22,9 +22,11 @@
 	</beans:bean>
 
 	<!-- DAO 정의 --> 
-	<beans:bean id="StudentDAO" class="com.yongq.s_dao.StudentDAO"/>
-	<beans:bean id="AdminDAO" class="com.yongq.a_dao.AdminDAO"/>
+	<beans:bean id="SDaoImpl" class="com.yongq.s_dao.SDaoImpl"/>
+	<beans:bean id="ADaoImpl" class="com.yongq.a_dao.ADaoImpl"/>
+	<beans:bean id="MDaoImpl" class="com.yongq.p_dao.MDaoImpl"/>
 	
 	<context:component-scan base-package="com.yongq.controller"/>
+	<context:component-scan base-package="com.yongq.service"/>
 
 </beans:beans>

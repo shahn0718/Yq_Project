@@ -1,10 +1,10 @@
-package com.yongq.cos;
+package com.yongq.p_dao;
 
 import java.util.ArrayList;
 
 import com.yongq.dto.MenuVO;
 
-public interface MenuService {
+public interface MDao {
 
   /*
    * 메뉴 확인(일일 메뉴)

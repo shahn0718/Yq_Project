@@ -8,7 +8,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +16,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.yongq.a_dao.ADao;
 import com.yongq.dto.AdminVO;
 import com.yongq.dto.StudentVO;
-import com.yongq.s_dao.SDao;
-import com.yongq.s_dao.StudentDAO;
+import com.yongq.service.LoginServiceImpl;
 
 @Controller
 public class LoginController {
 
   private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
-  StudentDAO Slogin;
-
   @Autowired
-  private SqlSession sqlSession;
-
+  private LoginServiceImpl loginService;
+  
   /**
    * Simply selects the home view to render by returning its name.
    */
@@ -75,7 +70,8 @@ public class LoginController {
   }
   
   /*
-   * 로그인 실패할 경우의 수 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 
+   * 로그인 실패할 경우의 수 
+   * 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 
    * 2. 비밀번호가 틀린 경우.(SQL에 정보는 있지만 값의 불일치)
    */
 
@@ -89,8 +85,8 @@ public class LoginController {
     String stu_id = req.getParameter("stu_id");
     String stu_pw = req.getParameter("stu_pw");
 
-    SDao sdao = sqlSession.getMapper(SDao.class);
-    HashMap<StudentVO, String> loginInfo = sdao.stuLogin(stu_id);
+    
+    HashMap<StudentVO, String> loginInfo = loginService.stuLogin(stu_id);
 
     try {
       if (stu_pw.equals(loginInfo.get("STU_PW"))) {
@@ -131,8 +127,8 @@ public class LoginController {
     String ad_id = req.getParameter("ad_id");
     String ad_pw = req.getParameter("ad_pw");
 
-    ADao adao = sqlSession.getMapper(ADao.class);
-    HashMap<AdminVO, String> loginInfo = adao.adLogin(ad_id);
+    
+    HashMap<AdminVO, String> loginInfo = loginService.adLogin(ad_id);
 
     try {
       if (ad_id.equals(loginInfo.get("AD_ID"))) {

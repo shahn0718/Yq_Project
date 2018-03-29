@@ -8,10 +8,10 @@ import com.yongq.dto.StudentVO;
 
 public interface SDao {
 
-  //Test용 list 불러오기
+  //Test용 list 불러오기(학생)
   public ArrayList<StudentVO> stuList();
-  //학생 로그인 (stu_id)
+  //학생 로그인 (학번)
   public HashMap<StudentVO,String> stuLogin(String stu_id);
-  //학생 정보(Info)
+  //학생 정보(학번)
   public HashMap<StudentVO,String> stuInfo(String stu_id);
 }
