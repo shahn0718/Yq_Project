@@ -26,7 +26,7 @@
 </div>
 		<form method="post" action="student/menu">
 		<input type="submit" value="메뉴보기"></form>
-		<form method="post" action="Student_Recharge.jsp">
+		<form method="post" action="student/recharge">
 		<input type="submit" value="충전하기"></form>
 		<form method="post" action="UseChk.do">
 		<input type="submit" value="사용내역"></form>

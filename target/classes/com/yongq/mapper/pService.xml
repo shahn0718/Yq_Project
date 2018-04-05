@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yongq.s_dao.SDao">
+
+	<insert id="writeRcg">
+		INSERT INTO FORUSE(STU_ID,DATE,MN_PRICE,F_USE) VALUES
+		(#{param1},#{param2},#{param3},'충전')
+	</insert>
+
+	<update id="updateRcg">
+		UPDATE STUDENT SET STU_CHANGE = STU_CHANGE + #{param1} WHERE STU_ID =
+		#{param2}
+	</update>
+	
+</mapper>

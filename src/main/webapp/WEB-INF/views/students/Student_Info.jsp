@@ -34,7 +34,6 @@
 <form method="post"  action="Foruse.do">
 <input type= "submit" value ="사용">
 
-
 </form>
 <!-- <div style="position:absolute; left:180px; bottom:40px"> -->
 <!-- <img src="MacintoshHD/Users/ahn/Documents\QR코드.png" width=150px height=150px> -->

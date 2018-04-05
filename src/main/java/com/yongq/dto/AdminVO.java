@@ -31,7 +31,7 @@ public class AdminVO {
 
   public void setAd_name(String ad_name) {
     this.ad_name = ad_name;
-  };
+  }
   
 
 }

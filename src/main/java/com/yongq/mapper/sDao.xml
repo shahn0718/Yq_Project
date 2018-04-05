@@ -14,4 +14,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="stuInfo" resultType="com.yongq.dto.StudentVO">
 		SELECT STU_ID, STU_NAME, STU_CHANGE FROM STUDENT WHERE STU_ID =#{param1}
 	</select>
+	
+	
 </mapper>
