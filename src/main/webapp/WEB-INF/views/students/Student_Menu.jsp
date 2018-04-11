@@ -20,6 +20,11 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>학식 메뉴</title>
 <script src="https://blog.jquery.com/2012/08/09/jquery-1-8-released/"></script>
+<script type="text/javascript">
+	function goBack() {
+		window.history.back();
+	}
+</script>
 </head>
 <body>
 <%
@@ -27,8 +32,8 @@
 	String today = formatter.format(new java.util.Date());
 %>
 
-<form method="post" action="Student_Main_Page.jsp">
-<input type="submit" value="뒤로">
+
+<input type="button" value="뒤로" onclick="goBack();">
 </form>
 <center>
 <a href="weekMenu"><h2><%=today%></h2></a>

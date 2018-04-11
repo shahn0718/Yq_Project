@@ -19,6 +19,7 @@ import com.yongq.service.PayServiceImpl;
 @Controller
 public class PayController {
 
+  //transaction 트랜잭션 처리 해줘야함
   private static final Logger logger = LoggerFactory.getLogger(PayController.class);
 
   @Autowired 
@@ -32,15 +33,11 @@ public class PayController {
     
     return getDate;
   }
-  /*
-   * 처음 예를 통해서 mn_price = 3500으로 고정
-   */
+  
   @RequestMapping("/student/recharge")
   public String stuRcg(Model model){
     
     return "students/Student_Recharge";
-    
-    
   }
   
   //RequestMapping 이름 다시 설정해주기
@@ -53,13 +50,31 @@ public class PayController {
     String date = getDate();
     int mn_price = Integer.parseInt(req.getParameter("recharge_mn"));
    
-    System.out.println(stu_id);
-    System.out.println(date);
-    System.out.println(mn_price);
+    
+    logger.info("충전 과정 시작");
     payService.writeRcg(stu_id, date, mn_price);
-   
+    logger.info("충전 정보 업데이트");
     payService.updateRcg(mn_price, stu_id);
     
-    return "students/Student_Main_Page";
+    return "redirect:/student/recharge";
   }
+  
+  @RequestMapping("/student/pay")
+  public String stuPay (Model model, HttpServletRequest req){
+    
+    HashMap<StudentVO,String> userInfo = (HashMap<StudentVO,String>)req.getSession().getAttribute("userInfo");
+    
+    String stu_id = userInfo.get("stu_id");
+    String date = getDate();
+    int mn_price = 3500;
+    
+    logger.info("결제 과정 시작");
+    payService.updateUse(mn_price, stu_id);
+    logger.info("결제 정보 업데이트");
+    payService.writeUse(stu_id, date, mn_price);
+    
+   
+    return "redirect:/student/Info";
+  }
+  
 }

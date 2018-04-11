@@ -3,12 +3,7 @@ package com.yongq.service;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public interface LoginService<T,V> {  
-  /*
-   * 이진탐색알고리즘 
-   * created By Ahn on 2018. 3. 28
-   */
-  
+public interface LoginService<T,V> {
   /*
    * Student
    * 1. 학생 로그인 (학번)

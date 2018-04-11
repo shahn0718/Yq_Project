@@ -14,4 +14,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		#{param2}
 	</update>
 	
+	<insert id="writeUse">
+		INSERT INTO FORUSE(STU_ID,DATE,MN_PRICE,F_USE) VALUES 
+		(#{param1},#{param2},#{param3},'사용')
+	</insert>
+	
+	<update id='updateUse'>
+	 	UPDATE STUDENT SET STU_CHANGE = STU_CHANGE - #{param1} WHERE STU_ID =
+	 	#{param2}
+	</update>
 </mapper>

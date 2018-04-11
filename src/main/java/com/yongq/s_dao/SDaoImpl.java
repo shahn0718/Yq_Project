@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.yongq.dto.StudentVO;
 
 @Repository("SDaoImpl")
-public class SDaoImpl<T, E> implements SDao{
+public class SDaoImpl implements SDao{
 
   @Autowired
   SqlSession sqlSession;
@@ -59,5 +59,23 @@ public class SDaoImpl<T, E> implements SDao{
     sdao = sqlSession.getMapper(SDao.class);
     sdao.updateRcg(mn_price, stu_id);
   }
+
+  @Override
+  public void writeUse(String stu_id, String date, int mn_price) {
+    
+    sdao = sqlSession.getMapper(SDao.class);
+    sdao.writeUse(stu_id, date, mn_price);
+    
+  }
+
+  @Override
+  public void updateUse(int mn_price, String stu_id) {
+    // TODO Auto-generated method stub
+    
+    sdao = sqlSession.getMapper(SDao.class);
+    sdao.updateUse(mn_price, stu_id);
+  }
+
+
 
 }

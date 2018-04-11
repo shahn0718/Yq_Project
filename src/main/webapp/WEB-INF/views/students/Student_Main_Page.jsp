@@ -18,7 +18,7 @@
 <body>
 
 <h1 id="txt1"></h1>
-<form method="post" action="Student_Login_Page.jsp">
+<form method="post" action="student">
 <input type="submit" value="뒤로"></form>
 <div style="position:absolute; top:10px; left:370px">
 <a href="student/Info"><p>${stu_name}</p></a>

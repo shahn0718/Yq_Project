@@ -6,14 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript">
+ function goBack(){
+	 window.history.back();
+ }
+
+</script>
 <title>충전 페이지</title>
 </head>
 <body>
 
 
-<form method="post" action="Student_Main_Page.jsp">
-<input type="submit" value="뒤로">
-</form>
+<input type="button" value="뒤로" onclick="goBack();">
 <form method="post" action="recharge/complete">
 <br>
 <br>

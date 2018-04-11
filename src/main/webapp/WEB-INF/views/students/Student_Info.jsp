@@ -6,11 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Student Information page</title>
+<script type="text/javascript">
+ function goBack(){
+	 window.history.back();
+ }
+
+</script>
+<title>학생 정보</title>
 </head>
 <body>
-<form method="post" action="Student_Main_Page.jsp">
-<input type="submit" value="뒤로"></form><br><br>
+<input type="button"  value="뒤로" onclick="goBack();"><br><br>
 <table cellpadding="20px" style="position:relative; left: 150px; top:20px;">
 <c:forEach var="student" items="${stuInfo}">	
 <tr>
@@ -31,12 +36,9 @@
 <br>
 <br>
 
-<form method="post"  action="Foruse.do">
+<form method="post"  action="pay">
 <input type= "submit" value ="사용">
 
 </form>
-<!-- <div style="position:absolute; left:180px; bottom:40px"> -->
-<!-- <img src="MacintoshHD/Users/ahn/Documents\QR코드.png" width=150px height=150px> -->
-
 </body>
 </html>
