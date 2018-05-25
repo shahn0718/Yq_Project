@@ -34,7 +34,7 @@
 
 
 <input type="button" value="뒤로" onclick="goBack();">
-</form>
+
 <center>
 <a href="weekMenu"><h2><%=today%></h2></a>
 

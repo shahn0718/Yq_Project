@@ -40,6 +40,12 @@ public class PayController {
     return "students/Student_Recharge";
   }
   
+  @RequestMapping("/student/main")
+  public String stuPage(Model model) {
+
+    return "students/Student_Main_Page";
+  }
+  
   //RequestMapping 이름 다시 설정해주기
   @RequestMapping("/student/recharge/complete")
   public String stuRecharge(Model model , HttpServletRequest req){
@@ -48,8 +54,17 @@ public class PayController {
     
     String stu_id = userInfo.get("stu_id");
     String date = getDate();
-    int mn_price = Integer.parseInt(req.getParameter("recharge_mn"));
-   
+    
+    int mn_price =0;
+    
+    if(req.getParameter("recharge_mn").equals("")){
+      String nullValue = "0";
+      System.out.println("hello");
+       mn_price = Integer.parseInt(nullValue);
+       
+    }else
+     mn_price = Integer.parseInt(req.getParameter("recharge_mn"));
+  
     
     logger.info("충전 과정 시작");
     payService.writeRcg(stu_id, date, mn_price);

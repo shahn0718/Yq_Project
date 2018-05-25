@@ -17,24 +17,30 @@
 <body>
 
 
-<input type="button" value="뒤로" onclick="goBack();">
+<input type="button" value="뒤로" onclick="goBack()">
 <form method="post" action="recharge/complete">
 <br>
 <br>
 <br>
 <br>
 <%-- <% session.getAttribute("stu_id");%> --%>
-<table>
-	<tr>
-		<td>충전 가격</td>
-		<td><input type="text" name="recharge_mn" value="" size=" "></td>
+<table align="center">
+	<tr align="center">
+		<td>충전가격</td>
 	</tr>
-	
+	<br>
+	<br>
+	<tr>
+		
+		<!--  <td><input type="text" name="recharge_mn" value="" size=" "></td>-->
+		<td><input type="radio" name="recharge_mn" value="1000">1000</td>
+		<td><input type="radio" name="recharge_mn" value="3000">3000</td>
+		<td><input type="radio" name="recharge_mn" value="5000">5000</td>
+		<td><input type="radio" name="recharge_mn" value="10000">10000</td>
+		
+	</tr>
 </table>
 
-	
-<%-- <h1>${loginUser.stu_id}</h1> --%>
-<%-- <input type="text" name=${loginUser.stu_id} value='${stu_id}'></h1> --%>
 <br>
 <br>
 <br>
@@ -42,7 +48,7 @@
 <br>
 <br>
 <br>
-<input type= "submit" value = "등록">
+<input type="submit" value="충전">
 
 </form>
 </body>

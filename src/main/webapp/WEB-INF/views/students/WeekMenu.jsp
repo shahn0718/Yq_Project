@@ -9,12 +9,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>주간 메뉴</title>
+<script type="text/javascript">
+	function goBack() {
+		window.history.back(-2);
+	}
+</script>
 </head>
 <body>
 
-<form method="post" action="Student_Menu.jsp">
-<input type="submit" value="뒤로"></form>
-
+<input type="button" value="뒤로" onclick="goBack();">
 
 <center><h1>주간 메뉴</h1>
    	<table style="width:2000; table-layout:fixed; text-align:center;" borderColor=#000000  cellSpacing=0 cellPadding=0 border=1 align="center">
