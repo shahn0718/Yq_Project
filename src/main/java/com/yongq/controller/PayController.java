@@ -15,7 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yongq.dto.StudentVO;
 import com.yongq.service.PayServiceImpl;
-
+/**
+ * 
+ * @Package Name : com.yongq.controller
+ * @FileName : PayController.java
+ * @Date : 2018. 5. 25. 
+ * @User : AHN
+ * @Description : 충전, 사용(학생)
+ */
 @Controller
 public class PayController {
 
@@ -54,16 +61,7 @@ public class PayController {
     
     String stu_id = userInfo.get("stu_id");
     String date = getDate();
-    
-    int mn_price =0;
-    
-    if(req.getParameter("recharge_mn").equals("")){
-      String nullValue = "0";
-      System.out.println("hello");
-       mn_price = Integer.parseInt(nullValue);
-       
-    }else
-     mn_price = Integer.parseInt(req.getParameter("recharge_mn"));
+    int mn_price = Integer.parseInt(req.getParameter("recharge_mn"));
   
     
     logger.info("충전 과정 시작");

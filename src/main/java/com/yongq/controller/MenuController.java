@@ -13,7 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yongq.dto.MenuVO;
 import com.yongq.service.MenuServiceImpl;
-
+/**
+ * 
+ * @Package Name : com.yongq.controller
+ * @FileName : MenuController.java
+ * @Date : 2018. 5. 25. 
+ * @User : AHN
+ * @Description : 메뉴조회 (일일, 주간)
+ */
 @Controller
 public class MenuController {
   

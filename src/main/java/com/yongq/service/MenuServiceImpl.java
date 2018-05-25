@@ -9,7 +9,7 @@ import com.yongq.dto.MenuVO;
 import com.yongq.p_dao.MDaoImpl;
 
 @Service
-public class MenuServiceImpl implements MenuService{
+public class MenuServiceImpl implements MenuService<MenuVO>{
   
   @Autowired 
   MDaoImpl mDaoImpl;

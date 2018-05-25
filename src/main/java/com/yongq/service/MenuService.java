@@ -2,8 +2,6 @@ package com.yongq.service;
 
 import java.util.ArrayList;
 
-import com.yongq.dto.MenuVO;
-
 public interface MenuService<T> {
 
   /*

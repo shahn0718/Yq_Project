@@ -15,7 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.yongq.dto.AdminVO;
 import com.yongq.dto.StudentVO;
 import com.yongq.service.LoginServiceImpl;
-
+/**
+ * 
+ * @Package Name : com.yongq.controller
+ * @FileName : InfoController.java
+ * @Date : 2018. 5. 25. 
+ * @User : AHN
+ * @Description : 정보 (학생, 관리자)
+ */
 @Controller
 public class InfoController {
   
