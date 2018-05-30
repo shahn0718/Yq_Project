@@ -17,6 +17,9 @@ public class ViewRcgVO {
   private int mn_price;
   private String stu_id;
   
+  //충전 합계
+  private int rcgTotal;
+  
   public String getDate() {
     return date;
   }
@@ -34,6 +37,12 @@ public class ViewRcgVO {
   }
   public void setStu_id(String stu_id) {
     this.stu_id = stu_id;
+  }
+  public int getRcgTotal() {
+    return rcgTotal;
+  }
+  public void setRcgTotal(int rcgTotal) {
+    this.rcgTotal = rcgTotal;
   }
   
   

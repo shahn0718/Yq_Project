@@ -63,9 +63,9 @@ public class ViewServiceImpl implements ViewService {
   }
   
   @Override
-  public ArrayList chkTotlist(String stu_id, String keyword) {
+  public ArrayList chkTotUselist(String stu_id, String keyword) {
     // 학생 사용내역 총합계 리스트
-    return vDaoImpl.chkTotlist(stu_id, keyword);
+    return vDaoImpl.chkTotUselist(stu_id, keyword);
   }
 
   /*
@@ -99,5 +99,17 @@ public class ViewServiceImpl implements ViewService {
   public ArrayList<ViewRcgVO> chkAllRcg() {
     // 관리자 전체 확인
     return vDaoImpl.chkAllRcg();
+  }
+
+  @Override
+  public ArrayList<ViewRcgVO> chkTotRcg(String stu_id, String keyword) {
+    // 학생 충전내역 총합계
+    return vDaoImpl.chkTotRcg(stu_id, keyword);
+  }
+
+  @Override
+  public ArrayList<ViewRcgVO> chkTotRcglist(String stu_id, String keyword) {
+    // 학생 충전내역 총합계 리스트
+    return vDaoImpl.chkTotRcglist(stu_id, keyword);
   }
 }

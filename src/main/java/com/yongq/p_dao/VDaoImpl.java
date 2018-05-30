@@ -89,10 +89,10 @@ public class VDaoImpl implements VDao{
   }
   
   @Override
-  public ArrayList<ViewUseVO> chkTotlist(String stu_id, String keyword) {
+  public ArrayList<ViewUseVO> chkTotUselist(String stu_id, String keyword) {
     // 학생 사용내역 총합계 리스트
     vdao = sqlSession.getMapper(VDao.class);
-    ArrayList<ViewUseVO> chkTotlist = vdao.chkTotlist(stu_id, keyword);
+    ArrayList<ViewUseVO> chkTotlist = vdao.chkTotUselist(stu_id, keyword);
     
     return chkTotlist;
   }
@@ -149,5 +149,25 @@ public class VDaoImpl implements VDao{
     ArrayList<ViewRcgVO> chkAllRcg = vdao.chkAllRcg();
     
     return chkAllRcg;
+  }
+
+  @Override
+  public ArrayList<ViewRcgVO> chkTotRcg(String stu_id, String keyword) {
+    // 학생 충전내역 합계
+   
+    vdao =sqlSession.getMapper(VDao.class);
+    ArrayList<ViewRcgVO>  chkTotRcg = vdao.chkTotRcg(stu_id, keyword);
+    
+    return chkTotRcg;
+  }
+
+  @Override
+  public ArrayList<ViewRcgVO> chkTotRcglist(String stu_id, String keyword) {
+    // 학생 충전내역 합계 리스트
+    
+    vdao = sqlSession.getMapper(VDao.class);
+    ArrayList<ViewRcgVO> chkTotRcglist = vdao.chkTotRcglist(stu_id, keyword);
+   
+    return chkTotRcglist;
   }
 }

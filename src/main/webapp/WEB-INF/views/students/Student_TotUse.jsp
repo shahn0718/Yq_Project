@@ -191,7 +191,7 @@
         <br><br>
         
         <center>
-        <form method="post" action="UseTot.do">
+        <form method="post" action="/controller/student/viewtotal">
         <input type="text" name="keyword">
         <input type="submit" value="검색">
        	<h3>검색할 월 입력</h3>
@@ -214,7 +214,7 @@
             	 <tr height="50">
 					<th>일자</th><th>장소</th><th>메뉴명</th><th>사용금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${chkTotlist}">
+				 <c:forEach var="foruse" items="${chkTotUselist}">
 				 <tr height=50>
 				 <td width=100>${foruse.date}</td>
 				 <td width=100>${foruse.chain}</td>

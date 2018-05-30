@@ -30,7 +30,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT SUM(MN_PRICE) AS useTotal FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%')
 	</select>
 	
-	<select id="chkTotlist" resultType="com.yongq.dto.ViewUseVO">
+	<select id="chkTotUselist" resultType="com.yongq.dto.ViewUseVO">
 		SELECT * FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%');
 	</select>
 	
@@ -54,5 +54,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="chkAllRcg" resultType="com.yongq.dto.ViewRcgVO">
 		SELECT * FROM FORUSE WHERE F_USE = '충전' ORDER BY DATE DESC
+	</select>
+	
+	<select id="chkTotRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT SUM(MN_PRICE) AS rcgTotal FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='충전' AND DATE LIKE CONCAT( #{param2},'%')
+	</select>
+	
+	<select id="chkTotRcglist" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='충전' AND DATE LIKE CONCAT( #{param2},'%');
 	</select>
 </mapper>

@@ -22,29 +22,30 @@
     .aa { text-align:center;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Usage page</title>
+<title>충전 내역</title>
 <script src="https://blog.jquery.com/2012/08/09/jquery-1-8-released/"></script>
-<script type="text/javascript">
- function goBack(){
-	 window.history.back();
- }
-
-</script>
 </head>
 <body>
 <%
  java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy.MM.dd");
  String today = formatter.format(new java.util.Date());
 %>
+<script type="text/javascript">
+ function goBack(){
+	 window.history.go(-2);
+ }
+
+</script>
+
 <input type="button" value="뒤로" onclick="goBack()">
 
 <center>
 <div class="tabWrap">
     <ul class="tab_Menu">
-        <li class="tabMenu current">
+        <li class="tabMenu">
             <a href="#tabContent01" >충전 내역</a>
         </li>
-        <li class="tabMenu">
+        <li class="tabMenu current">
             <a href="#tabContent02" >충전 금액 조회</a>
         </li>
     </ul>
@@ -72,10 +73,10 @@
             	 <tr height="50">
 				 	<th>일자</th><th>충전금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${chkStuRcg}">
+				 <c:forEach var="recharge" items="${chkStuRcg}">
 				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
+				 <td width=100>${recharge.date}</td>
+				 <td width=100>${recharge.mn_price}</td>
 				 </tr>
 				 </c:forEach>
 				 </table>
@@ -104,10 +105,10 @@
             	 <tr height="50">
 				 	<th>일자</th><th>충전금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${chkWeekRcg}">
+				 <c:forEach var="recharge" items="${chkWeekRcg}">
 				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
+				 <td width=100>${recharge.date}</td>
+				 <td width=100>${recharge.mn_price}</td>
 				 </tr>
 				 </c:forEach>
 				 </table>
@@ -136,10 +137,10 @@
             	 <tr height="50">
 					<th>일자</th><th>충전금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${chkMthRcg}">
+				 <c:forEach var="recharge" items="${chkMthRcg}">
 				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
+				 <td width=100>${recharge.date}</td>
+				 <td width=100>${recharge.mn_price}</td>
 				 </tr> 
 				 </c:forEach>
 				 </table>
@@ -168,10 +169,10 @@
             	 <tr height="50">
 					<th>일자</th><th>충전금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${chk3MthRcg}">
+				 <c:forEach var="recharge" items="${chk3MthRcg}">
 				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
+				 <td width=100>${recharge.date}</td>
+				 <td width=100>${recharge.mn_price}</td>
 				 </tr> 
 				 </c:forEach>
 				 </table>
@@ -183,10 +184,10 @@
         
         <center>
         <form method="post" action="/controller/student/rcgtotal">
-        <input type="text" name="keyword">
+        <input type="text" name="condition">
         <input type="submit" value="검색">
        	<h3>검색할 월 입력</h3>
-       	<h5>(ex)2017년 5월 => 2017-05</h5>
+       	<h5>(ex)2017년 5월 => 2018-05</h5>
        	</form>
        	</center>
       	<div id="TAB2">
@@ -194,12 +195,25 @@
             <br><br>		
             	 <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
             	
-				 <c:forEach var="foruse" items="${chkTotRcg}">
+				 <c:forEach var="recharge" items="${chkTotRcg}">
 				<tr>
-				<td>월별 충전 금액: ${foruse.rcgTotal}</td>	
-				 </tr>
+				<td>월별 충전 금액: ${recharge.rcgTotal}</td>	
+				</tr>
 				 </c:forEach>
 				 </table>
+				 <br><br>
+				  <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
+            	 <tr height="50">
+					<th>일자</th><th>충전금액</th>
+				 </tr>
+				 <c:forEach var="recharge" items="${chkTotRcglist}">
+				 <tr height=50>
+				 <td width=100>${recharge.date}</td>
+				 <td width=100>${recharge.mn_price}</td>
+				 </tr> 
+				 </c:forEach>
+				 </table>
+				 
 				 </div>
 				 </div>
 		</div>

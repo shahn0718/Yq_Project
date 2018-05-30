@@ -29,7 +29,7 @@ public interface ViewService<T> {
   
   // 사용 내역 검색(학생)
   public ArrayList<T> chkTotUsage(String stu_id, String keyword);
-  public ArrayList<T> chkTotlist(String stu_id, String keyword);
+  public ArrayList<T> chkTotUselist(String stu_id, String keyword);
   
   /*
    *  충전 내역
@@ -45,6 +45,10 @@ public interface ViewService<T> {
   
   //학생 전체 (관리자)
   public ArrayList<T> chkAllRcg();
+  
+  // 충전 내역 검색(학생)
+  public ArrayList<T> chkTotRcg(String stu_id, String keyword);
+  public ArrayList<T> chkTotRcglist(String stu_id, String keyword);
   
   
 }

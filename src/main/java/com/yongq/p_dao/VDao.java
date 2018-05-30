@@ -32,7 +32,7 @@ public interface VDao {
   
   // 사용내역 총합계
   public ArrayList<ViewUseVO> chkTotUsage(String stu_id, String keyword);
-  public ArrayList<ViewUseVO> chkTotlist(String stu_id, String keyword);
+  public ArrayList<ViewUseVO> chkTotUselist(String stu_id, String keyword);
   
   /*
    *  충전 내역
@@ -48,5 +48,9 @@ public interface VDao {
   
   //관리자 전체
   public ArrayList<ViewRcgVO> chkAllRcg();
+  
+  // 충전내역 총합계
+  public ArrayList<ViewRcgVO> chkTotRcg(String stu_id, String keyword);
+  public ArrayList<ViewRcgVO> chkTotRcglist(String stu_id, String keyword);
   
 }

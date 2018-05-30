@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.yongq.dto.StudentVO;
+import com.yongq.dto.ViewRcgVO;
 import com.yongq.dto.ViewUseVO;
 import com.yongq.service.ViewServiceImpl;
 
@@ -34,7 +35,7 @@ public class ViewTotalController {
   private ViewServiceImpl viewService;
   
   //학생 - 합계 내역
-  @RequestMapping("student/viewtotal")
+  @RequestMapping("student/usetotal")
   public String stuViewTotUse (Model model, HttpServletRequest req){
     
     HashMap<StudentVO,String> userInfo = (HashMap<StudentVO,String>)req.getSession().getAttribute("userInfo");
@@ -43,11 +44,10 @@ public class ViewTotalController {
     String keyword = req.getParameter("keyword");
 
     ArrayList<ViewUseVO> chkTotUsage = viewService.chkTotUsage(stu_id, keyword);
-    ArrayList<ViewUseVO> chkTotlist = viewService.chkTotlist(stu_id, keyword);
+    ArrayList<ViewUseVO> chkTotUselist = viewService.chkTotUselist(stu_id, keyword);
     
     model.addAttribute("chkTotUsage",chkTotUsage);
-    model.addAttribute("chkTotlist",chkTotlist);
-    
+    model.addAttribute("chkTotUselist",chkTotUselist);
     
     // 학생 전체
     ArrayList<ViewUseVO> chkStuUsage = viewService.chkStuUsage(stu_id);
@@ -62,5 +62,34 @@ public class ViewTotalController {
     model.addAttribute("chk3MthUsage",chk3MthUsage);
     
     return "/students/Student_TotUse";
+  }
+  
+  @RequestMapping("student/rcgtotal")
+  public String stuViewTotRcg(Model model, HttpServletRequest req){
+    
+    HashMap<StudentVO,String> userInfo = (HashMap<StudentVO,String>)req.getSession().getAttribute("userInfo");
+    
+    String stu_id = userInfo.get("stu_id");
+    String keyword = req.getParameter("keyword");
+    
+    ArrayList<ViewRcgVO> chkTotRcg = viewService.chkTotRcg(stu_id, keyword);
+    ArrayList<ViewRcgVO> chkTotRcglist = viewService.chkTotRcglist(stu_id, keyword);
+    
+    model.addAttribute("chkTotRcg", chkTotRcg);
+    model.addAttribute("chkTotRcglist", chkTotRcglist);
+    
+    //학생 전체
+    ArrayList<ViewRcgVO> chkStuRcg = viewService.chkStuRcg(stu_id);
+    //주, 1개월, 3개월
+    ArrayList<ViewRcgVO> chkWeekRcg = viewService.chkWeekRcg(stu_id);
+    ArrayList<ViewRcgVO> chkMthRcg = viewService.chkMthRcg(stu_id);
+    ArrayList<ViewRcgVO> chk3MthRcg = viewService.chk3MthRcg(stu_id);
+    
+    model.addAttribute("chkStuRcg",chkStuRcg);
+    model.addAttribute("chkWeekRcg",chkWeekRcg);
+    model.addAttribute("chkMthRcg",chkMthRcg);
+    model.addAttribute("chk3MthRcg",chk3MthRcg);
+    
+    return "/students/Student_TotRcg";
   }
 }
