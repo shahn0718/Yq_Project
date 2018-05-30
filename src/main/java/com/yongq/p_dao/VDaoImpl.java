@@ -23,30 +23,33 @@ public class VDaoImpl implements VDao{
   VDao vdao;
   
   @Override
-  public ArrayList<ViewUseVO> chkWeekUsage(String stu_id, String date) {
+  public ArrayList<ViewUseVO> chkWeekUsage(String stu_id) {
     // TODO Auto-generated method stub
    
     vdao = sqlSession.getMapper(VDao.class);
-    ArrayList<ViewUseVO> chkWeekUsage = vdao.chkWeekUsage(stu_id, date);
+    ArrayList<ViewUseVO> chkWeekUsage = vdao.chkWeekUsage(stu_id);
+    
     return chkWeekUsage;
   }
 
   @Override
-  public ArrayList<ViewUseVO> chkMthUsage(String stu_id, String date) {
+  public ArrayList<ViewUseVO> chkMthUsage(String stu_id) {
     // TODO Auto-generated method stub
     
     vdao = sqlSession.getMapper(VDao.class);
-    ArrayList<ViewUseVO> chkMthUsage = vdao.chkMthUsage(stu_id, date);
+    ArrayList<ViewUseVO> chkMthUsage = vdao.chkMthUsage(stu_id);
+   
     return chkMthUsage;
     
   }
 
   @Override
-  public ArrayList<ViewUseVO> chk3MthUsage(String stu_id, String date) {
+  public ArrayList<ViewUseVO> chk3MthUsage(String stu_id) {
     // TODO Auto-generated method stub
     
     vdao = sqlSession.getMapper(VDao.class);
-    ArrayList<ViewUseVO> chk3MthUsage = vdao.chk3MthUsage(stu_id, date);
+    ArrayList<ViewUseVO> chk3MthUsage = vdao.chk3MthUsage(stu_id);
+    
     return chk3MthUsage;
   }
 
@@ -56,7 +59,18 @@ public class VDaoImpl implements VDao{
     
    vdao = sqlSession.getMapper(VDao.class);
    ArrayList<ViewUseVO> chkAllUsage = vdao.chkAllUsage();
+   
    return chkAllUsage;
+  }
+
+  @Override
+  public ArrayList<ViewUseVO> chkStuUsage(String stu_id) {
+    // TODO Auto-generated method stub
+    
+    vdao = sqlSession.getMapper(VDao.class);
+    ArrayList<ViewUseVO> chkStuUsage = vdao.chkStuUsage(stu_id);
+    
+    return chkStuUsage;
   }
 
 }

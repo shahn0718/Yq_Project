@@ -23,27 +23,33 @@ public class ViewServiceImpl implements ViewService<ViewUseVO> {
   VDaoImpl vDaoImpl;
   
   @Override
-  public ArrayList<ViewUseVO> chkWeekUsage(String stu_id, String date) {
+  public ArrayList<ViewUseVO> chkWeekUsage(String stu_id) {
     // TODO Auto-generated method stub
-    return vDaoImpl.chkWeekUsage(stu_id, date);
+    return vDaoImpl.chkWeekUsage(stu_id);
   }
 
   @Override
-  public ArrayList<ViewUseVO> chkMthUsage(String stu_id, String date) {
+  public ArrayList<ViewUseVO> chkMthUsage(String stu_id) {
     // TODO Auto-generated method stub
-    return vDaoImpl.chkMthUsage(stu_id, date);
+    return vDaoImpl.chkMthUsage(stu_id);
   }
 
   @Override
-  public ArrayList<ViewUseVO> chk3MthUsage(String stu_id, String date) {
+  public ArrayList<ViewUseVO> chk3MthUsage(String stu_id) {
     // TODO Auto-generated method stub
-    return vDaoImpl.chk3MthUsage(stu_id, date);
+    return vDaoImpl.chk3MthUsage(stu_id);
   }
 
   @Override
   public ArrayList<ViewUseVO> chkAllUsage() {
     // TODO Auto-generated method stub
     return vDaoImpl.chkAllUsage();
+  }
+
+  @Override
+  public ArrayList<ViewUseVO> chkStuUsage(String stu_id) {
+    // TODO Auto-generated method stub
+    return vDaoImpl.chkStuUsage(stu_id);
   }
 
 }

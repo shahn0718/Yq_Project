@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
    	<mapper resource="com/yongq/mapper/aDao.xml"/>
    	<mapper resource="com/yongq/mapper/mService.xml"/>
    	<mapper resource="com/yongq/mapper/pService.xml"/>
+   	<mapper resource="com/yongq/mapper/vService.xml"/>
    </mappers>
    
 </configuration>

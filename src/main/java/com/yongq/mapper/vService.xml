@@ -4,16 +4,21 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yongq.p_dao.VDao">
 
+
+	<select id="chkStuUsage" resultType="com.yongq.dto.ViewUseVO">
+		SELECT * FROM FORUSE WHERE F_USE='사용' AND STU_ID = #{PARAM1}  ORDER BY DATE DESC LIMIT 7
+	</select>
+
 	<select id="chkWeekUsage" resultType="com.yongq.dto.ViewUseVO">
-		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = ? AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 7 DAY)) ORDER BY DATE
+		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 7 DAY)) ORDER BY DATE
 	</select>
 	
 	<select id="chkMthUsage" resultType="com.yongq.dto.ViewUseVO">
-		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = ? AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 1 MONTH)) ORDER BY DATE
+		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 1 MONTH)) ORDER BY DATE
 	</select>
 
 	<select id="chk3MthUsage" resultType="com.yongq.dto.ViewUseVO">
-		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = ? AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 3 MONTH)) ORDER BY DATE
+		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 3 MONTH)) ORDER BY DATE
 	</select>
 
 	<select id="chkAllUsage" resultType="com.yongq.dto.ViewUseVO">
