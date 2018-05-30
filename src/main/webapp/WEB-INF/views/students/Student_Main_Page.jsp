@@ -30,7 +30,7 @@
 		<input type="submit" value="충전하기"></form>
 		<form method="post" action="student/viewuse">
 		<input type="submit" value="사용내역"></form>
-		<form method="post" action="ViewRcg.do">
+		<form method="post" action="student/viewrcg">
 		<input type="submit" value="충전내역"></form>
 			
 </body>

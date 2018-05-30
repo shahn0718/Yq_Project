@@ -27,7 +27,7 @@
 		<form method="post" action="Admin_Menu_Pw.jsp">
 		<input type="submit" value="비밀번호 찾기"></form>
 		
-		<form method="post" action="AdminViewUse.do">
+		<form method="post" action="/controller/admin/viewuse">
 		<input type="submit" value="사용내역"></form>
 		
 		<form method="post" action="AdminTot.do">

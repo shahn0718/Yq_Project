@@ -24,15 +24,19 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사용 내역</title>
 <script src="https://blog.jquery.com/2012/08/09/jquery-1-8-released/"></script>
+<script type="text/javascript">
+ function goBack(){
+	 window.history.back();
+ }
+
+</script>
 </head>
 <body>
 <%
  java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy.MM.dd");
  String today = formatter.format(new java.util.Date());
 %>
-<form method="post" action="Student_Main_Page.jsp">
-<input type="submit" value="뒤로">
-</form>
+<input type="button" value="뒤로" onclick="goBack()">
 <center>
 <div class="tabWrap">
     <ul class="tab_Menu">

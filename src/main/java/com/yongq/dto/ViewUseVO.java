@@ -9,12 +9,18 @@ package com.yongq.dto;
  */
 public class ViewUseVO {
 
+  /*
+   *  학생에서 조회(날짜, 장소, 메뉴 이름, 가격) = date, chain, mn_name, mn_price
+   *  관리자에서 조회(학번, 날짜, 장소, 메뉴 이름, 가격) = stu_id, date, chain, mn_name, mn_price
+   * 
+   */
   private String stu_id;
   private String date;
   private String chain;
   private String mn_name;
   private int mn_price;
-  private String f_use;
+
+  
   public String getStu_id() {
     return stu_id;
   }
@@ -44,13 +50,5 @@ public class ViewUseVO {
   }
   public void setMn_price(int mn_price) {
     this.mn_price = mn_price;
-  }
-  public String getF_use() {
-    return f_use;
-  }
-  public void setF_use(String f_use) {
-    this.f_use = f_use;
-  }
-  
-  
+  }  
 }

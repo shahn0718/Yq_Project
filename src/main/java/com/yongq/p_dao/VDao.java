@@ -2,6 +2,7 @@ package com.yongq.p_dao;
 
 import java.util.ArrayList;
 
+import com.yongq.dto.ViewRcgVO;
 import com.yongq.dto.ViewUseVO;
 
 /**
@@ -10,10 +11,14 @@ import com.yongq.dto.ViewUseVO;
  * @FileName : VDao.java
  * @Date : 2018. 5. 25. 
  * @User : AHN
- * @Description : 사용내역 조회
+ * @Description : 사용내역 조회 , 충전 내역 조회
  */
 public interface VDao {
 
+  /*
+   *  사용 내역
+   */
+  
   // 학생 전체
   public ArrayList<ViewUseVO> chkStuUsage(String stu_id);
   
@@ -24,4 +29,20 @@ public interface VDao {
   
   // 관리자 (전체)
   public ArrayList<ViewUseVO> chkAllUsage();
+  
+  /*
+   *  충전 내역
+   */
+  
+  // 학생 전체
+  public ArrayList<ViewRcgVO> chkStuRcg(String stu_id);
+  
+  // 학생 (주,달,3달)
+  public ArrayList<ViewRcgVO> chkWeekRcg(String stu_id);
+  public ArrayList<ViewRcgVO> chkMthRcg(String stu_id);
+  public ArrayList<ViewRcgVO> chk3MthRcg(String stu_id);
+  
+  //관리자 전체
+  public ArrayList<ViewRcgVO> chkAllRcg();
+  
 }

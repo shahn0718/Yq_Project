@@ -4,6 +4,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yongq.p_dao.VDao">
 
+	<!-- 사용내역 -->
 
 	<select id="chkStuUsage" resultType="com.yongq.dto.ViewUseVO">
 		SELECT * FROM FORUSE WHERE F_USE='사용' AND STU_ID = #{PARAM1}  ORDER BY DATE DESC LIMIT 7
@@ -25,4 +26,25 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM FORUSE WHERE F_USE='사용' ORDER BY DATE DESC
 	</select>
 	
+	<!-- 충전내역 -->
+	
+	<select id="chkStuRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE = '충전' AND STU_ID = #{PARAM1} ORDER BY DATE DESC LIMIT 7
+	</select>
+	
+	<select id="chkWeekRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE = '충전' AND STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 7 DAY)) ORDER BY DATE
+	</select>
+	
+	<select id="chkMthRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE = '충전' AND  STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 1 MONTH)) ORDER BY DATE
+	</select>
+	
+	<select id="chk3MthRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE = '충전' AND STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 3 MONTH)) ORDER BY DATE
+	</select>
+	
+	<select id="chkAllRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE = '충전' ORDER BY DATE DESC
+	</select>
 </mapper>
