@@ -27,6 +27,10 @@ public interface ViewService<T> {
   //학생 전체 (관리자)
   public ArrayList<T> chkAllUsage();
   
+  // 사용 내역 검색(학생)
+  public ArrayList<T> chkTotUsage(String stu_id, String keyword);
+  public ArrayList<T> chkTotlist(String stu_id, String keyword);
+  
   /*
    *  충전 내역
    */

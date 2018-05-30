@@ -22,28 +22,30 @@
     .aa { text-align:center;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>사용 내역</title>
+<title>Usage page</title>
 <script src="https://blog.jquery.com/2012/08/09/jquery-1-8-released/"></script>
-<script type="text/javascript">
- function goBack(){
-	 window.history.back();
- }
-
-</script>
 </head>
 <body>
 <%
  java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy.MM.dd");
  String today = formatter.format(new java.util.Date());
 %>
+<script type="text/javascript">
+ function goBack(){
+	 window.history.go(-2);
+ }
+
+</script>
+
 <input type="button" value="뒤로" onclick="goBack()">
+
 <center>
 <div class="tabWrap">
     <ul class="tab_Menu">
-        <li class="tabMenu current">
+        <li class="tabMenu">
             <a href="#tabContent01" >사용 내역</a>
         </li>
-        <li class="tabMenu">
+        <li class="tabMenu current">
             <a href="#tabContent02" >사용 매출 조회</a>
         </li>
     </ul>
@@ -183,19 +185,17 @@
 				 </c:forEach>
 				 </table>
 				 </div>
-			</div>
-		
-		
-		<!-- 매출 내역 -->
-	    <div id="tabContent02" class="tabPage">
+				</div>
+			
+		        <div id="tabContent02" class="tabPage">
         <br><br>
         
         <center>
-        <form method="post" action="/controller/student/viewtotal">
+        <form method="post" action="UseTot.do">
         <input type="text" name="keyword">
         <input type="submit" value="검색">
        	<h3>검색할 월 입력</h3>
-       	<h5>(ex)2017년 5월 => 2018-05</h5>
+       	<h5>(ex)2017년 5월 => 2017-05</h5>
        	</form>
        	</center>
       	<div id="TAB2">
@@ -205,146 +205,32 @@
             	
 				 <c:forEach var="foruse" items="${chkTotUsage}">
 				<tr>
-				<td>월별매출: ${foruse.useTotal}</td>
-				
+				<td>월별매출: ${foruse.useTotal}</td>	
 				 </tr>
 				 </c:forEach>
 				 </table>
+				 <br><br>
+				 <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
+            	 <tr height="50">
+					<th>일자</th><th>장소</th><th>메뉴명</th><th>사용금액</th>
+				 </tr>
+				 <c:forEach var="foruse" items="${chkTotlist}">
+				 <tr height=50>
+				 <td width=100>${foruse.date}</td>
+				 <td width=100>${foruse.chain}</td>
+				 <td width=100>${foruse.mn_name}</td>
+				 <td width=100>${foruse.mn_price}</td>
+				 </tr> 
+				 </c:forEach>
+				 </table>
+				 
+				 
 				 </div>
 				 </div>
+			
 		</div>
 		</div>
      
-		<!-- 충전 내역 누를때의 페이지 화면 // 충전 내역 데이터베이스 목록 7개로 제한-->
-    	<!--
-        <div id="tabContent02" class="tabPage">
-        <br><br>
-        	<ul class="tab_Menu1">
-        		<li class="tabMenu current1">
-            		<a href="#tabContent004" >1주일전</a>
-        		</li>
-        		<li class="tabMenu1">
-            		<a href="#tabContent005" >1개월전</a>
-        		</li>
-        		<li class="tabMenu">
-            		<a href="#tabContent006" >3개월전</a>
-        		</li>
-    		</ul>
-            <div id="TAB2" style="text-align:center">
-            <br><br>
-            <br><br>		
-            	 <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
-            	 <tr height="50">
-				 	<th>일자</th><th>충전금액</th>
-				 </tr>
-				 <c:forEach var="foruse" items="${rcgChkList}">
-				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
-				 </tr>
-				 </c:forEach>
-				 </table>
-				 </div>
-			</div>
-					 
-			<!-- 충전내역에서의 1주일전까지의 목록 화면 // 
-    
-			<div id="tabContent004" class="tabPage">
-			<br><br>
-        	<ul class="tab_Menu1">
-        		<li class="tabMenu current1">
-            		<a href="#tabContent004" >1주일전</a>
-        		</li>
-        		<li class="tabMenu1">
-            		<a href="#tabContent005" >1개월전</a>
-        		</li>
-        		<li class="tabMenu">
-            		<a href="#tabContent006" >3개월전</a>
-        		</li>
-    		</ul>
-            <div id="TAB2" style="text-align:center">
-            <br><br>
-            <br><br>		
-            	 <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
-            	 <tr height="50">
-				 	<th>일자</th><th>충전금액</th>
-				 </tr>
-				 <c:forEach var="foruse" items="${rcgChkWeekList}">
-				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
-				 </tr>
-				 </c:forEach>
-				 </table>
-				 </div>
-			</div>
-					 
-			<!-- 충전내역에서의 1개월전까지의 목록 화면 // 
-    
-			<div id="tabContent005" class="tabPage">
-			<br><br>
-        	<ul class="tab_Menu1">
-        		<li class="tabMenu current1">
-            		<a href="#tabContent004" >1주일전</a>
-        		</li>
-        		<li class="tabMenu1">
-            		<a href="#tabContent005" >1개월전</a>
-        		</li>
-        		<li class="tabMenu">
-            		<a href="#tabContent006" >3개월전</a>
-        		</li>
-    		</ul>
-            <div id="TAB2" style="text-align:center">
-            <br><br>
-            <br><br>		
-            	 <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
-            	 <tr height="50">
-				 	<th>일자</th><th>충전금액</th>
-				 </tr>
-				 <c:forEach var="foruse" items="${rcgChkMonthList}">
-				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
-				 </tr>
-				 </c:forEach>
-				 </table>
-				 </div>
-			</div>
-					 
-			<!-- 충전내역에서의 3개월전까지의 목록 화면 // 
-    
-			<div id="tabContent006" class="tabPage">
-			<br><br>
-        	<ul class="tab_Menu1">
-        		<li class="tabMenu current1">
-            		<a href="#tabContent004" >1주일전</a>
-        		</li>
-        		<li class="tabMenu1">
-            		<a href="#tabContent005" >1개월전</a>
-        		</li>
-        		<li class="tabMenu">
-            		<a href="#tabContent006" >3개월전</a>
-        		</li>
-    		</ul>
-            <div id="TAB2" style="text-align:center">
-            <br><br>
-            <br><br>		
-            	 <table style="width=2000; table-layout:fixed;" borderColor=#000000 cellSpacing=0 cellPadding=0 border=1 align="center">
-            	 <tr height="50">
-				 	<th>일자</th><th>충전금액</th>
-				 </tr>
-				 <c:forEach var="foruse" items="${rcgChkThMonthList}">
-				 <tr height=50>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
-				 </tr>
-				 </c:forEach>
-				 </table>
-				 </div>
-			</div>
-      </div>
-     </div>
-     -->
 </center>
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.0.min.js" ></script>
 <script type="text/javascript">

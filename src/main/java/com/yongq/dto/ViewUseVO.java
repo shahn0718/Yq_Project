@@ -19,8 +19,17 @@ public class ViewUseVO {
   private String chain;
   private String mn_name;
   private int mn_price;
+  
+  // 사용내역 합계
+  private int useTotal;
 
   
+  public int getUseTotal() {
+    return useTotal;
+  }
+  public void setUseTotal(int useTotal) {
+    this.useTotal = useTotal;
+  }
   public String getStu_id() {
     return stu_id;
   }

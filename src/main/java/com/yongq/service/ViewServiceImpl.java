@@ -55,6 +55,18 @@ public class ViewServiceImpl implements ViewService {
     // 관리자 전체 확인
     return vDaoImpl.chkAllUsage();
   }
+  
+  @Override
+  public ArrayList<ViewUseVO> chkTotUsage(String stu_id, String keyword) {
+    // 학생 사용내역 총합계
+    return vDaoImpl.chkTotUsage(stu_id, keyword) ;
+  }
+  
+  @Override
+  public ArrayList chkTotlist(String stu_id, String keyword) {
+    // 학생 사용내역 총합계 리스트
+    return vDaoImpl.chkTotlist(stu_id, keyword);
+  }
 
   /*
    *  충전 내역
@@ -88,5 +100,4 @@ public class ViewServiceImpl implements ViewService {
     // 관리자 전체 확인
     return vDaoImpl.chkAllRcg();
   }
-
 }

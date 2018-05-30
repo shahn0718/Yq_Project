@@ -26,6 +26,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM FORUSE WHERE F_USE='사용' ORDER BY DATE DESC
 	</select>
 	
+	<select id="chkTotUsage" resultType="com.yongq.dto.ViewUseVO">
+		SELECT SUM(MN_PRICE) AS useTotal FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%')
+	</select>
+	
+	<select id="chkTotlist" resultType="com.yongq.dto.ViewUseVO">
+		SELECT * FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%');
+	</select>
+	
 	<!-- 충전내역 -->
 	
 	<select id="chkStuRcg" resultType="com.yongq.dto.ViewRcgVO">

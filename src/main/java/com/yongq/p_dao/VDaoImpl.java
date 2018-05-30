@@ -78,6 +78,25 @@ public class VDaoImpl implements VDao{
    return chkAllUsage;
   }
   
+  @Override
+  public ArrayList<ViewUseVO> chkTotUsage(String stu_id, String keyword) {
+    // 학생 사용내역 총합계
+    
+    vdao = sqlSession.getMapper(VDao.class);
+    ArrayList<ViewUseVO> chkTotUsage = vdao.chkTotUsage(stu_id, keyword);
+    
+    return chkTotUsage;
+  }
+  
+  @Override
+  public ArrayList<ViewUseVO> chkTotlist(String stu_id, String keyword) {
+    // 학생 사용내역 총합계 리스트
+    vdao = sqlSession.getMapper(VDao.class);
+    ArrayList<ViewUseVO> chkTotlist = vdao.chkTotlist(stu_id, keyword);
+    
+    return chkTotlist;
+  }
+  
   /*
    * 충전 내역
    */
@@ -131,5 +150,4 @@ public class VDaoImpl implements VDao{
     
     return chkAllRcg;
   }
-
 }
