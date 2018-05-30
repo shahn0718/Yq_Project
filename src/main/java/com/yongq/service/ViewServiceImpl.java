@@ -57,13 +57,19 @@ public class ViewServiceImpl implements ViewService {
   }
   
   @Override
+  public ArrayList<ViewUseVO> chkSearchUsage(String stu_id) {
+    // 관리자 특정학생 검색
+    return vDaoImpl.chkSearchUsage(stu_id);
+  }
+  
+  @Override
   public ArrayList<ViewUseVO> chkTotUsage(String stu_id, String keyword) {
     // 학생 사용내역 총합계
     return vDaoImpl.chkTotUsage(stu_id, keyword) ;
   }
   
   @Override
-  public ArrayList chkTotUselist(String stu_id, String keyword) {
+  public ArrayList<ViewUseVO> chkTotUselist(String stu_id, String keyword) {
     // 학생 사용내역 총합계 리스트
     return vDaoImpl.chkTotUselist(stu_id, keyword);
   }
@@ -100,6 +106,12 @@ public class ViewServiceImpl implements ViewService {
     // 관리자 전체 확인
     return vDaoImpl.chkAllRcg();
   }
+  
+  @Override
+  public ArrayList<ViewRcgVO> chkSearchRcg(String stu_id) {
+    // 관리자 특정 학생 검색
+    return vDaoImpl.chkSearchRcg(stu_id);
+  }
 
   @Override
   public ArrayList<ViewRcgVO> chkTotRcg(String stu_id, String keyword) {
@@ -112,4 +124,5 @@ public class ViewServiceImpl implements ViewService {
     // 학생 충전내역 총합계 리스트
     return vDaoImpl.chkTotRcglist(stu_id, keyword);
   }
+
 }

@@ -4,8 +4,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yongq.p_dao.VDao">
 
-	<!-- 사용내역 -->
-
+	<!-- 사용내역(학생) -->
+	<!-- 전체, 주, 달, 3달, 사용합계, 사용합계 리스트 -->	
+	
 	<select id="chkStuUsage" resultType="com.yongq.dto.ViewUseVO">
 		SELECT * FROM FORUSE WHERE F_USE='사용' AND STU_ID = #{PARAM1}  ORDER BY DATE DESC LIMIT 7
 	</select>
@@ -22,19 +23,26 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM FORUSE  WHERE F_USE='사용' AND  STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 3 MONTH)) ORDER BY DATE
 	</select>
 
-	<select id="chkAllUsage" resultType="com.yongq.dto.ViewUseVO">
-		SELECT * FROM FORUSE WHERE F_USE='사용' ORDER BY DATE DESC
-	</select>
-	
 	<select id="chkTotUsage" resultType="com.yongq.dto.ViewUseVO">
 		SELECT SUM(MN_PRICE) AS useTotal FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%')
 	</select>
 	
 	<select id="chkTotUselist" resultType="com.yongq.dto.ViewUseVO">
-		SELECT * FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%');
+		SELECT * FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='사용' AND DATE LIKE CONCAT( #{param2},'%')
 	</select>
 	
-	<!-- 충전내역 -->
+	<!-- 사용내역(관리자) -->
+	
+	<select id="chkAllUsage" resultType="com.yongq.dto.ViewUseVO">
+		SELECT * FROM FORUSE WHERE F_USE='사용' ORDER BY DATE DESC
+	</select>
+	
+	<select id="chkSearchUsage" resultType="com.yongq.dto.ViewUseVO">
+		SELECT * FROM FORUSE WHERE F_USE ='사용' AND STU_ID = #{param1} ORDER BY DATE DESC
+	</select>
+	
+	<!-- 충전내역(학생) -->
+	<!-- 전체, 주, 달, 3달, 충전합계, 충전합계 리스트 -->	
 	
 	<select id="chkStuRcg" resultType="com.yongq.dto.ViewRcgVO">
 		SELECT * FROM FORUSE WHERE F_USE = '충전' AND STU_ID = #{PARAM1} ORDER BY DATE DESC LIMIT 7
@@ -52,10 +60,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM FORUSE WHERE F_USE = '충전' AND STU_ID = #{PARAM1} AND DATE > DATE(SUBDATE(CURDATE(), INTERVAL 3 MONTH)) ORDER BY DATE
 	</select>
 	
-	<select id="chkAllRcg" resultType="com.yongq.dto.ViewRcgVO">
-		SELECT * FROM FORUSE WHERE F_USE = '충전' ORDER BY DATE DESC
-	</select>
-	
 	<select id="chkTotRcg" resultType="com.yongq.dto.ViewRcgVO">
 		SELECT SUM(MN_PRICE) AS rcgTotal FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='충전' AND DATE LIKE CONCAT( #{param2},'%')
 	</select>
@@ -63,4 +67,15 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="chkTotRcglist" resultType="com.yongq.dto.ViewRcgVO">
 		SELECT * FROM FORUSE WHERE STU_ID = #{param1} AND F_USE='충전' AND DATE LIKE CONCAT( #{param2},'%');
 	</select>
+	
+	<!-- 충전내역(관리자) -->
+	
+	<select id="chkAllRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE = '충전' ORDER BY DATE DESC
+	</select>
+	
+	<select id="chkSearchRcg" resultType="com.yongq.dto.ViewRcgVO">
+		SELECT * FROM FORUSE WHERE F_USE ='충전' AND STU_ID = #{param1} ORDER BY DATE DESC
+	</select>
+	
 </mapper>

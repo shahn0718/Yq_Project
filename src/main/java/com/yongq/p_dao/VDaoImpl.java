@@ -26,7 +26,6 @@ public class VDaoImpl implements VDao{
   /*
    * 사용 내역
    */
-  
   @Override
   public ArrayList<ViewUseVO> chkStuUsage(String stu_id) {
     // 학생 전체 확인
@@ -67,16 +66,6 @@ public class VDaoImpl implements VDao{
     
     return chk3MthUsage;
   }
-
-  @Override
-  public ArrayList<ViewUseVO> chkAllUsage() {
-    // 관리자 전체 확인
-    
-   vdao = sqlSession.getMapper(VDao.class);
-   ArrayList<ViewUseVO> chkAllUsage = vdao.chkAllUsage();
-   
-   return chkAllUsage;
-  }
   
   @Override
   public ArrayList<ViewUseVO> chkTotUsage(String stu_id, String keyword) {
@@ -97,10 +86,29 @@ public class VDaoImpl implements VDao{
     return chkTotlist;
   }
   
+  @Override
+  public ArrayList<ViewUseVO> chkAllUsage() {
+    // 관리자 전체 확인
+    
+   vdao = sqlSession.getMapper(VDao.class);
+   ArrayList<ViewUseVO> chkAllUsage = vdao.chkAllUsage();
+   
+   return chkAllUsage;
+  }
+  
+  @Override
+  public ArrayList<ViewUseVO> chkSearchUsage(String stu_id) {
+    // 관리자 특정 학생 검색
+    
+    vdao =sqlSession.getMapper(VDao.class);
+    ArrayList<ViewUseVO> chkSearchUsage = vdao.chkSearchUsage(stu_id);
+    
+    return chkSearchUsage;
+  }
+  
   /*
    * 충전 내역
    */
-
   @Override
   public ArrayList<ViewRcgVO> chkStuRcg(String stu_id) {
     // 학생 전체 확인
@@ -142,16 +150,6 @@ public class VDaoImpl implements VDao{
   }
 
   @Override
-  public ArrayList<ViewRcgVO> chkAllRcg() {
-    // 관리자 전체 확인
-    
-    vdao = sqlSession.getMapper(VDao.class);
-    ArrayList<ViewRcgVO> chkAllRcg = vdao.chkAllRcg();
-    
-    return chkAllRcg;
-  }
-
-  @Override
   public ArrayList<ViewRcgVO> chkTotRcg(String stu_id, String keyword) {
     // 학생 충전내역 합계
    
@@ -169,5 +167,26 @@ public class VDaoImpl implements VDao{
     ArrayList<ViewRcgVO> chkTotRcglist = vdao.chkTotRcglist(stu_id, keyword);
    
     return chkTotRcglist;
+  }
+  
+  @Override
+  public ArrayList<ViewRcgVO> chkAllRcg() {
+    // 관리자 전체 확인
+    
+    vdao = sqlSession.getMapper(VDao.class);
+    ArrayList<ViewRcgVO> chkAllRcg = vdao.chkAllRcg();
+    
+    return chkAllRcg;
+  }
+
+
+  @Override
+  public ArrayList<ViewRcgVO> chkSearchRcg(String stu_id) {
+    // 관리자 특정 학생 검색
+    
+    vdao =sqlSession.getMapper(VDao.class);
+    ArrayList<ViewRcgVO> chkSearchRcg = vdao.chkSearchRcg(stu_id);
+    
+    return chkSearchRcg;
   }
 }

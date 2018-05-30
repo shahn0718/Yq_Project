@@ -34,7 +34,7 @@ public class ViewTotalController {
   @Autowired
   private ViewServiceImpl viewService;
   
-  //학생 - 합계 내역
+  //학생 - 합계내역 (사용내역) 
   @RequestMapping("student/usetotal")
   public String stuViewTotUse (Model model, HttpServletRequest req){
     
@@ -64,6 +64,7 @@ public class ViewTotalController {
     return "/students/Student_TotUse";
   }
   
+  //학생 - 합계내역 (충전내역) 
   @RequestMapping("student/rcgtotal")
   public String stuViewTotRcg(Model model, HttpServletRequest req){
     
@@ -92,4 +93,6 @@ public class ViewTotalController {
     
     return "/students/Student_TotRcg";
   }
+  
+ 
 }

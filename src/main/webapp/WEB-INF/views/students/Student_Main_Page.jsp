@@ -22,7 +22,8 @@
 <input type="submit" value="뒤로"></form>
 <div style="position:absolute; top:10px; left:370px">
 <a href="student/Info"><p>${stu_name}</p></a>
-<form method="post" action="Student_Login_Page.jsp"><input type="submit" value="로그아웃"></form>
+<form method="post" action="/controller/student"><input type="submit" value="로그아웃"></form>
+
 </div>
 		<form method="post" action="student/menu">
 		<input type="submit" value="메뉴보기"></form>

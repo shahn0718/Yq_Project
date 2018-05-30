@@ -6,11 +6,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin Information page</title>
+<title>관리자 정보</title>
 </head>
+<script type="text/javascript">
+	function goBack() {
+		window.history.back();
+	}
+</script>
 <body>
-<form method="post" action="Student_Main_Page.jsp">
-<input type="submit" value="뒤로"></form><br><br>
+
+<input type="button" value="뒤로" onclick="goBack();">
 <table cellpadding="20px" style="position:relative; left: 150px; top:20px;">
 <c:forEach var="admin" items="${adInfo}">	
 <tr>

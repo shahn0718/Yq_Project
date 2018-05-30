@@ -21,7 +21,7 @@ import com.yongq.service.LoginServiceImpl;
  * @FileName : InfoController.java
  * @Date : 2018. 5. 25. 
  * @User : AHN
- * @Description : 정보 (학생, 관리자)
+ * @Description : 정보 (학생, 관리자) , 비밀번호 찾기(관리자)
  */
 @Controller
 public class InfoController {
@@ -55,6 +55,23 @@ public class InfoController {
     model.addAttribute("adInfo",adInfo);
     
     return "admins/Admin_Info";
+  }
+  
+  @RequestMapping("/admin/find")
+  public String adFind(Model model){
+    
+    return "admins/Admin_FindPw";
+  }
+  
+  @RequestMapping("/admin/findpw")
+  public String adFindPw(HttpServletRequest req, Model model){
+    
+    String stu_id = req.getParameter("stu_id");
+    
+    ArrayList<StudentVO> findPw = loginService.findPw(stu_id);
+    model.addAttribute("findPw",findPw);
+        
+    return "admins/Admin_FindPw";
   }
   
 }

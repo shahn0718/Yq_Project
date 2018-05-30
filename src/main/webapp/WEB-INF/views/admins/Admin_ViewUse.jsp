@@ -22,17 +22,20 @@
     .aa { text-align:center;}
 </style>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Admin Usage page</title>
+<title>내역 조회</title>
 <script src="https://blog.jquery.com/2012/08/09/jquery-1-8-released/"></script>
+<script type="text/javascript">
+	function goBack() {
+		window.history.back();
+	}
+</script>
 </head>
 <body>
 <%
  java.text.SimpleDateFormat formatter = new java.text.SimpleDateFormat("yyyy.MM.dd");
  String today = formatter.format(new java.util.Date());
 %>
-<form method="post" action="Admin_Main_Page.jsp">
-<input type="submit" value="뒤로">
-</form>
+<input type="button" value="뒤로" onclick="goBack();">
 <center>
 <div class="tabWrap">
     <ul class="tab_Menu">
@@ -50,7 +53,7 @@
         <div id="tabContent01" class="tabPage">
         <br><br>
         <center>
-        <form method="post" action="Admin_Use_Search.do">
+        <form method="post" action="/controller/admin/searchuse">
         <input type="text" name="stu_id">
         <input type="submit" value="검색">
        	<h5>원하는 학번 입력</h5>
@@ -64,7 +67,7 @@
             	 <tr height="50">
 				 	<th>학번</th><th>일자</th><th>장소</th><th>메뉴명</th><th>사용금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${ad_use}">
+				 <c:forEach var="foruse" items="${chkAllUsage}">
 				 <tr height=50>
 				 <td width=100>${foruse.stu_id}</td>
 				 <td width=100>${foruse.date}</td>
@@ -82,7 +85,7 @@
         <div id="tabContent02" class="tabPage">
         <br><br>
         <center>
-        <form method="post" action="Admin_Recharge_Search.do">
+        <form method="post" action="/controller/admin/searchrcg">
         <input type="text" name="stu_id">
         <input type="submit" value="검색">
        	<h5>원하는 학번 입력</h5>
@@ -95,11 +98,11 @@
             	 <tr height="50">
 				 	<th>학번</th><th>일자</th><th>충전금액</th>
 				 </tr>
-				 <c:forEach var="foruse" items="${ad_recharge}">
+				 <c:forEach var="recharge" items="${chkAllRcg}">
 				 <tr height=50>
-				 <td width=100>${foruse.stu_id}</td>
-				 <td width=100>${foruse.date}</td>
-				 <td width=100>${foruse.mn_price}</td>
+				 <td width=100>${recharge.stu_id}</td>
+				 <td width=100>${recharge.date}</td>
+				 <td width=100>${recharge.mn_price}</td>
 				 </tr>
 				 </c:forEach>
 				 </table>

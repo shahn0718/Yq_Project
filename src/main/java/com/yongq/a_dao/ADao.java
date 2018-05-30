@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import com.yongq.dto.AdminVO;
+import com.yongq.dto.StudentVO;
 
 public interface ADao {
 
@@ -13,4 +14,6 @@ public interface ADao {
   public HashMap<AdminVO,String>adLogin(String ad_id);
   //관리자 정보(관리자번호)
   public ArrayList<AdminVO> adInfo(String ad_id);
+  //관리자 비밀번호찾기(학생번호)
+  public ArrayList<StudentVO> findPw(String stu_id);
 }

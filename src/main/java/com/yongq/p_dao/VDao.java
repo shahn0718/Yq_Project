@@ -29,6 +29,7 @@ public interface VDao {
   
   // 관리자 (전체)
   public ArrayList<ViewUseVO> chkAllUsage();
+  public ArrayList<ViewUseVO> chkSearchUsage(String stu_id);
   
   // 사용내역 총합계
   public ArrayList<ViewUseVO> chkTotUsage(String stu_id, String keyword);
@@ -48,6 +49,7 @@ public interface VDao {
   
   //관리자 전체
   public ArrayList<ViewRcgVO> chkAllRcg();
+  public ArrayList<ViewRcgVO> chkSearchRcg(String stu_id);
   
   // 충전내역 총합계
   public ArrayList<ViewRcgVO> chkTotRcg(String stu_id, String keyword);

@@ -19,5 +19,5 @@ public interface LoginService<T,V> {
    */
   public HashMap<T,V>adLogin(String ad_id);
   public ArrayList<T> adInfo(String ad_id);
-  
+  public ArrayList<T> findPw(String stu_id);
 }

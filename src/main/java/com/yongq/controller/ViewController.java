@@ -63,8 +63,10 @@ public class ViewController {
   public String adViewUse(Model model, HttpServletRequest req){
      
     ArrayList<ViewUseVO> chkAllUsage = viewService.chkAllUsage();
+    ArrayList<ViewRcgVO> chkAllRcg = viewService.chkAllRcg();
     
     model.addAttribute("chkAllUsage",chkAllUsage);
+    model.addAttribute("chkAllRcg",chkAllRcg);    
     
     return "admins/Admin_ViewUse";
   }
@@ -91,18 +93,31 @@ public class ViewController {
     return "students/Student_ViewRcg";
   }
 
-  // 관리자 - 충전 내역
-  @RequestMapping("/admin/viewrcg")
-  public String adViewRcg(Model model, HttpServletRequest req){
+  // 관리자 - 특정 학생 사용내역 확인
+  @RequestMapping("/admin/searchuse")
+  public String adSearchUse(Model model, HttpServletRequest req){
     
-    ArrayList<ViewRcgVO> chkAllRcg = viewService.chkAllRcg();
+    String stu_id = req.getParameter("stu_id");
     
-    model.addAttribute("chkAllRcg",chkAllRcg);
+    ArrayList<ViewUseVO> chkSearchUsage = viewService.chkSearchUsage(stu_id);
+    model.addAttribute("chkSearchUsage",chkSearchUsage);
     
-    return "admins/Admin_ViewRcg";
+    return "admins/Admin_SearchUse";
     
   }
   
+  // 관리자 - 특정 학생 충전내역 확인
+  @RequestMapping("/admin/searchrcg")
+  public String adSearchRcg(Model model, HttpServletRequest req){
+    
+    String stu_id = req.getParameter("stu_id");
+    
+    ArrayList<ViewRcgVO> chkSearchRcg = viewService.chkSearchRcg(stu_id);
+    model.addAttribute("chkSearchRcg",chkSearchRcg);
+    
+    return "admins/Admin_SearchRcg";
+    
+  }
 
 
 

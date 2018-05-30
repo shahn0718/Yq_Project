@@ -16,4 +16,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT AD_ID, AD_NAME FROM ADMIN WHERE AD_ID = #{param1}
 	</select>
 	
+	<select id="findPw" resultType="com.yongq.dto.StudentVO">
+		SELECT STU_PW FROM STUDENT WHERE STU_ID = #{param1}
+	</select>
+	
 </mapper>

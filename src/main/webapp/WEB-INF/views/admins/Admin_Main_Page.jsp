@@ -5,14 +5,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>AdminLogin success page</title>
+<title>관리자 메인메뉴</title>
 </head>
 <body>
 <form method="post" action="Admin_Login_Page.jsp">
 <input type="submit" value="뒤로"></form>
 <div style="position:absolute; top:10px; left:370px">
 <a href="admin/Info"><p>${ad_name}</p></a>
-<form method="post" action="Admin_Login_Page.jsp">
+<form method="post" action="/controller/admin">
 <input type="submit" value="로그아웃"></form>
 </div>
 	
@@ -24,7 +24,7 @@
 		<form method="post" action="/controller/student/weekMenu">
 		<input type="submit" value="메뉴보기"></form>
 		
-		<form method="post" action="Admin_Menu_Pw.jsp">
+		<form method="post" action="/controller/admin/find">
 		<input type="submit" value="비밀번호 찾기"></form>
 		
 		<form method="post" action="/controller/admin/viewuse">

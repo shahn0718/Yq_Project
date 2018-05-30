@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.yongq.dto.AdminVO;
+import com.yongq.dto.StudentVO;
 
 @Repository("ADaoImpl")
 public class ADaoImpl implements ADao{
@@ -41,6 +42,15 @@ public class ADaoImpl implements ADao{
     ArrayList<AdminVO> adInfo = adao.adInfo(ad_id);
     
     return adInfo;
+  }
+
+  @Override
+  public ArrayList<StudentVO> findPw(String stu_id) {
+    
+    adao = sqlSession.getMapper(ADao.class);
+    ArrayList<StudentVO> findPw = adao.findPw(stu_id);
+    
+    return findPw;
   }
   
 

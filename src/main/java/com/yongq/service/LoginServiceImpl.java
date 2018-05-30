@@ -38,8 +38,14 @@ public class LoginServiceImpl implements LoginService{
   
   @Override
   public ArrayList<AdminVO> adInfo(String ad_id) {
-    // TODO Auto-generated method stub
+    
     return aDaoImpl.adInfo(ad_id);
   }
+  @Override
+  public ArrayList<StudentVO> findPw(String stu_id) {
+    // 관리자 - 학생 비밀번호 찾기
+    return aDaoImpl.findPw(stu_id);
+  }
+  
   
 }
