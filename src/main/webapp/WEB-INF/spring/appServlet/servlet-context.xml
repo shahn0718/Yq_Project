@@ -26,6 +26,7 @@
 	<beans:bean id="ADaoImpl" class="com.yongq.a_dao.ADaoImpl"/>
 	<beans:bean id="MDaoImpl" class="com.yongq.p_dao.MDaoImpl"/>
 	<beans:bean id="VDaoImpl" class="com.yongq.p_dao.VDaoImpl"/>
+	<beans:bean id="IDaoImpl" class="com.yongq.a_dao.IDaoImpl"/>
 	
 	
 	<context:component-scan base-package="com.yongq.controller"/>

@@ -9,10 +9,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>사용자 비밀번호 찾기</title>
 </head>
+<script type="text/javascript">
+	function goBack() {
+		window.history.back();
+	}
+</script>
 <body>
-<form method="post" action="Admin_Main_Page.jsp">
-<input type="submit" value="뒤로">
-</form>
+<input type="button" value="뒤로" onclick="goBack();">
 <br><br><br>
 <form method="post" action="/controller/admin/findpw">
 <center><h1>비밀번호 찾기</h1></center><br><br>

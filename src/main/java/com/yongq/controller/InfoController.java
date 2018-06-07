@@ -31,6 +31,7 @@ public class InfoController {
   
   private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
 
+  // Student Info Page
   @RequestMapping("/student/Info")
   public String stuInfo(HttpServletRequest req, Model model){
   
@@ -44,6 +45,7 @@ public class InfoController {
     return "students/Student_Info";
   }
   
+  // Admin Info Page
   @RequestMapping("/admin/Info")
   public String adInfo(HttpServletRequest req, Model model){
     
@@ -57,12 +59,14 @@ public class InfoController {
     return "admins/Admin_Info";
   }
   
+  // Return Find Password Page
   @RequestMapping("/admin/find")
   public String adFind(Model model){
     
     return "admins/Admin_FindPw";
   }
   
+  // Find Password 
   @RequestMapping("/admin/findpw")
   public String adFindPw(HttpServletRequest req, Model model){
     

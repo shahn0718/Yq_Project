@@ -17,7 +17,7 @@
 </div>
 	
 		
-		<form method="post" action= "Admin_Menu_Insert.jsp">
+		<form method="post" action= "/controller/admin/insert">
 		<input type="submit" value="메뉴등록"></form>
 		
 		

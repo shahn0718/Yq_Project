@@ -62,6 +62,7 @@ public class MenuController {
      
   }
   
+  // 주간 메뉴 불러오기
   @RequestMapping("/student/weekMenu")
   public String stuWMenu(Model model){
     
