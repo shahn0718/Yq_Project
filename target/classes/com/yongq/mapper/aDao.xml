@@ -17,7 +17,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	<select id="findPw" resultType="com.yongq.dto.StudentVO">
-		SELECT STU_PW FROM STUDENT WHERE STU_ID = #{param1}
+		SELECT STU_PW, STU_NAME FROM STUDENT WHERE STU_ID = #{param1}
 	</select>
 	
 </mapper>
