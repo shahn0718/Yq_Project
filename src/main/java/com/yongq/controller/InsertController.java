@@ -26,7 +26,7 @@ public class InsertController {
   private static final Logger logger = LoggerFactory.getLogger(InsertController.class);
 
   @Autowired
-  private InsertServiceImpl insertServiceImpl;
+  private InsertServiceImpl insertService;
 
   @RequestMapping("/admin/insert")
   public String callInsert(){
@@ -46,10 +46,10 @@ public class InsertController {
     String mn_type = req.getParameter("mn_type");
     String mn_sold = " ";
     
-    insertServiceImpl.insertMenu(mn_id, mn_date, mn_name, mn_price, chain, mn_type, mn_sold);
+    insertService.insertMenu(mn_id, mn_date, mn_name, mn_price, chain, mn_type, mn_sold);
 
     
-    return "/admins/Admin_Insert";
+    return "/admins/Admin_Main_Page";
   }
 
 }

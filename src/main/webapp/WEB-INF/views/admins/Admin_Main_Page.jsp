@@ -8,7 +8,7 @@
 <title>관리자 메인메뉴</title>
 </head>
 <body>
-<form method="post" action="Admin_Login_Page.jsp">
+<form method="post" action="/controller/admin">
 <input type="submit" value="뒤로"></form>
 <div style="position:absolute; top:10px; left:370px">
 <a href="admin/Info"><p>${ad_name}</p></a>
@@ -30,7 +30,7 @@
 		<form method="post" action="/controller/admin/viewuse">
 		<input type="submit" value="사용내역"></form>
 		
-		<form method="post" action="AdminTot.do">
+		<form method="post" action="/controller/admin/total">
 		<input type="submit" value="정산"></form>
 	    		
 </body>

@@ -42,10 +42,13 @@
 	</tr>
 	<tr>
 		<td>장소 </td>
-		<td><input type="radio" name="chain" value="인성관">인성관
-		<input type="radio" name="chain" value="생활관">생활관</td>
-		<td><input type="radio" name="chain" value="환경과학대">환과대
-		<input type="radio" name="chain" value="기숙사">기숙사</td>
+		<td>
+		<input type="radio" name="chain" value="인성관">인성관
+		<input type="radio" name="chain" value="생활관">생활관
+		</td>
+		<td>
+		<input type="radio" name="chain" value="환경과학대">환과대
+		</td>
 	</tr>
 	<tr>
 		<td>타입</td>

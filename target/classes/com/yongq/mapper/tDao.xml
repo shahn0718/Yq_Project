@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yongq.a_dao.TDao">
+
+    <!-- 정산(인성관, 환경과학대, 기숙사) -->
+	<select id = "getInsungTot" resultType= "com.yongq.dto.ViewTotVO">
+		SELECT SUM(MN_PRICE) AS INSUNGTOT FROM FORUSE WHERE CHAIN='인성관' AND F_USE='사용' AND DATE LIKE CONCAT(#{param1},'%')
+	</select>
+	
+	<select id = "getHwanTot" resultType= "com.yongq.dto.ViewTotVO">
+		SELECT SUM(MN_PRICE) AS HWANTOT FROM FORUSE WHERE CHAIN='환경과학대' AND F_USE='사용' AND DATE LIKE CONCAT(#{param1},'%')
+	</select>
+	
+	<select id = "getDormTot" resultType= "com.yongq.dto.ViewTotVO">
+		SELECT SUM(MN_PRICE) AS DORMTOT FROM FORUSE WHERE CHAIN='기숙사' AND F_USE='사용' AND  DATE LIKE CONCAT(#{param1},'%')
+	</select>
+	
+	<!-- 인기메뉴(인성관, 환경과학대, 기숙사) -->
+	<select id = "getInsungMenu" resultType= "com.yongq.dto.ViewTotVO">
+		SELECT MN_NAME, COUNT(*) AS INSUNGCHK FROM FORUSE WHERE CHAIN='인성관' AND F_USE='사용' AND DATE LIKE CONCAT(#{param1},'%') GROUP BY MN_NAME ORDER BY INSUNGCHK DESC LIMIT 5
+	</select>
+	<select id = "getHwanMenu" resultType= "com.yongq.dto.ViewTotVO">
+		SELECT MN_NAME, COUNT(*) AS HWANCHK FROM FORUSE WHERE CHAIN='환경과학대' AND F_USE='사용' AND DATE LIKE CONCAT(#{param1},'%') GROUP BY MN_NAME ORDER BY HWANCHK DESC LIMIT 5
+	</select>
+	<select id = "getDormMenu" resultType= "com.yongq.dto.ViewTotVO">
+		SELECT MN_NAME, COUNT(*) AS DORMCHK FROM FORUSE WHERE CHAIN='생활관' AND F_USE='사용' AND DATE LIKE CONCAT(#{param1},'%') GROUP BY MN_NAME ORDER BY DORMCHK DESC LIMIT 5
+	</select>
+
+
+
+
+</mapper>
