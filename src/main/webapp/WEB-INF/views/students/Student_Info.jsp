@@ -15,7 +15,7 @@
 <title>학생 정보</title>
 </head>
 <body>
-<input type="button"  value="뒤로" onclick="goBack();"><br><br>
+<input type="button"  value="뒤로" onclick="/controller/"><br><br>
 <table cellpadding="20px" style="position:relative; left: 150px; top:20px;">
 <c:forEach var="student" items="${stuInfo}">	
 <tr>

@@ -191,7 +191,7 @@
         <br><br>
         
         <center>
-        <form method="post" action="/controller/student/viewtotal">
+        <form method="post" action="/controller/student/usetotal">
         <input type="text" name="keyword">
         <input type="submit" value="검색">
        	<h3>검색할 월 입력</h3>

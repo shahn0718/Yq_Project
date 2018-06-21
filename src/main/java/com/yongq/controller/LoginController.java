@@ -76,9 +76,6 @@ public class LoginController {
     return "admins/Admin_Login_Page";
   }
   
-  
-  
-  
   /*
    * 로그인 실패할 경우의 수 
    * 1. 아이디가 존재 하지 않는 경우.(SQL에 정보가 없는 경우) 

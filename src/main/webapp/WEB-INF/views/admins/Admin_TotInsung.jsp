@@ -19,9 +19,14 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>정산</title>
 <script src="https://blog.jquery.com/2012/08/09/jquery-1-8-released/"></script>
+<script type="text/javascript">
+	function goBack() {
+		window.history.go(-2);
+	}
+</script>
 </head>
 <body>
-
+<input type="button" value="뒤로" onclick="goBack();">
 <div class="tabWrap">
     <ul class="tab_Menu">
         <li class="tabMenu current">
